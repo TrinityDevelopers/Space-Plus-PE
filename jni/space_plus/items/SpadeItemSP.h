@@ -3,6 +3,7 @@
 
 #include "mcpe/item/ShovelItem.h"
 #include "space_plus/util/IDGenSP.h"
+#include "SPItems.h"
 
 class SpadeItemSP : public ShovelItem {
 public:

@@ -31,7 +31,7 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) {
 	MSHookFunction((void*) &Item::initItems, (void*) &Item$initItems, (void**) &_Item$initItems);
 	MSHookFunction((void*) &Item::initCreativeItems, (void*) &Item$initCreativeItems, (void**) &_Item$initCreativeItems);
 	
-	ClientProxyCore::bl_armorRenders = (char**) dlsym(bl_handle, "bl_armorRenders");
+	ClientProxyCore::bl_armorRenders = (std::array <std::string, 4096>*) dlsym(bl_handle, "bl_armorRenders");
 	
 	return JNI_VERSION_1_2;
 }
