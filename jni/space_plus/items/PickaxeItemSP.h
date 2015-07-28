@@ -6,5 +6,5 @@
 
 class PickaxeItemSP : public PickaxeItem {
 public:
-    PickaxeItem(std::string);
+    PickaxeItemSP(std::string);
 };

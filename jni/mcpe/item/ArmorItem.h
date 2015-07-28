@@ -33,7 +33,7 @@ public:
 public:
 	int armorType;					// 72
 	int defence;					// 76
-	int renderIndex					// 80
+	int renderIndex;				// 80
 	ArmorMaterial *armorMaterial;	// 84
 
 public:

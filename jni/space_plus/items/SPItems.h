@@ -25,10 +25,10 @@ public:
     static Item* steelLeggings;
     static Item* steelBoots;
 
-    static ArmorItem::ArmorMaterial ARMOR_STEEL(30, 3, 8, 6, 3);
-    static Item::Tier TOOL_STEEL(3, 768, 5.0F, 2.0F, 8);
+    static ArmorItem::ArmorMaterial ARMOR_STEEL;
+    static Item::Tier TOOL_STEEL;
 
-    static std::vector<Item*> hiddenItems = new std::vector<Item*>();
+    static std::vector<Item*> hiddenItems;
 
     static void initItems();
 	static void initCreativeItems();

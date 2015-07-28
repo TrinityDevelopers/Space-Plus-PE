@@ -6,8 +6,8 @@ class ClientProxyCore : public CommonProxyCore {
 private:
     static int renderIndexHeavyArmor;
 	
+public:
 	static char** bl_armorRenders;
 
-public:
     int getTitaniumArmorRenderIndex();
 };

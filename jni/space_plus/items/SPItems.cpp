@@ -10,6 +10,9 @@ Item* SPItems::steelChestplate = NULL;
 Item* SPItems::steelLeggings = NULL;
 Item* SPItems::steelBoots = NULL;
 
+ArmorItem::ArmorMaterial SPItems::ARMOR_STEEL = ArmorItem::ArmorMaterial(30, 3, 8, 6, 3);
+Item::Tier SPItems::TOOL_STEEL = Item::Tier(3, 768, 5.0F, 2.0F, 8);
+
 void SPItems::initItems() {
     SPItems::steelPickaxe = new PickaxeItemSP("steel_pickaxe");
     SPItems::steelAxe = new AxeItemSP("steel_axe");

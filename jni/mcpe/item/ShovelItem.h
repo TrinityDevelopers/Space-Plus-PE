@@ -7,6 +7,6 @@ class ShovelItem : public DiggerItem
 public:
 	ShovelItem(int, const Item::Tier &);
 	virtual ~ShovelItem();
-	virtual void useOn(ItemInstance *, Player *, int, int, int, signed char, float, float, float);
-	virtual void canDestroySpecial(const Tile *) const;
+	virtual bool useOn(ItemInstance *, Player *, int, int, int, signed char, float, float, float);
+	virtual bool canDestroySpecial(const Tile *) const;
 };
