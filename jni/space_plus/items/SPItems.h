@@ -3,7 +3,7 @@
 #include <vector>
 #include <Constants.h>
 #include "space_plus/util/SPCoreUtil.h"
-#inlcude "mcpe/item/Item.h"
+#include "mcpe/item/Item.h"
 #include "mcpe/item/ArmorItem.h"
 #include "mcpe/item/ItemInstance.h"
 #include "PickaxeItemSP.h"

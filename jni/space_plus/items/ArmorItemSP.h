@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-#include <SpacePlusPECore.h>
+#include <SpacePlusCore.h>
 #include "space_plus/util/IDGenSP.h"
 #include "space_plus/proxy/ClientProxyCore"
 #include "mcpe/item/ArmorItem.h"

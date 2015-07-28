@@ -12,9 +12,9 @@
 
 static void (*_Item$initItems)();
 static void Item$initItems() {
-	SPItems::initItems();
-	
 	_Item$initItems();
+	
+	SPItems::initItems();
 }
 
 static void (*_Item$initCreativeItems)();
