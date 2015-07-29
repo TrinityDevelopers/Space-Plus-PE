@@ -1,7 +1,7 @@
 #include "HoeItemSP.h"
 
-HoeItemSP::HoeItemSP(std::string assetName) : HoeItem(IDGenSP::findNextItemID(), SPItems::TOOl_STEEL) {
+HoeItemSP::HoeItemSP(std::string assetName) : HoeItem(IDGenSP::findNextItemID(), SPItems::TOOL_STEEL) {
     setNameID(assetName);
-    setTexture(assetName, 0);
+    setIcon(assetName, 0);
 	setCategory(3);
 }

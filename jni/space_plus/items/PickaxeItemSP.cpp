@@ -1,7 +1,7 @@
 #include "PickaxeItemSP.h"
 
-PickaxeItemSP::PickaxeItemSP(std::string assetName) : PickaxeItem(IDGenSP::findNextItemID(), SPItems::TOOl_STEEL) {
+PickaxeItemSP::PickaxeItemSP(std::string assetName) : PickaxeItem(IDGenSP::findNextItemID(), SPItems::TOOL_STEEL) {
     setNameID(assetName);
-    setTexture(assetName, 0);
+    setIcon(assetName, 0);
 	setCategory(3);
 }

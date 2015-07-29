@@ -6,6 +6,6 @@ SwordItemSP::SwordItemSP(std::string assetName) : Item(IDGenSP::findNextItemID()
 	f1 = tier.damageVsEntity + 4.0F;
 	setMaxDamage(tier.maxUses);
     setNameID(assetName);
-    setTexture(assetName, 0);
+    setIcon(assetName, 0);
 	setCategory(3);
 }

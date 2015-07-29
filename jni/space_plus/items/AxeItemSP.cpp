@@ -1,7 +1,7 @@
 #include "AxeItemSP.h"
 
-AxeItemSP::AxeItemSP(std::string assetName) : HatchetItem(IDGenSP::findNextItemID(), SPItems::TOOl_STEEL) {
+AxeItemSP::AxeItemSP(std::string assetName) : HatchetItem(IDGenSP::findNextItemID(), SPItems::TOOL_STEEL) {
     setNameID(assetName);
-    setTexture(assetName, 0);
+    setIcon(assetName, 0);
 	setCategory(3);
 }
