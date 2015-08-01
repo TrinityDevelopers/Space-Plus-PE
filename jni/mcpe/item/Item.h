@@ -157,7 +157,7 @@ public:
 	static Item *yellowDust;
 
 public:
-	static Item *items[256];
+	static Item *items[512];
 	static std::vector<ItemInstance> creativeList;
 
 public:
@@ -166,18 +166,17 @@ public:
 
 public:
 	//void **vtable;				// 0
-	int maxStackSize;				// 4
-	const char *textureName;		// 8
-	char filler1[6];				// 12
-	short id;						// 18
-	short maxDamage;				// 20
-	char filler2[2];				// 22
-	TextureUVCoordinateSet itemIcon;// 24
-	int category;					// 56
-	bool _handEquipped;				// 60
-	bool stackedByData;				// 61
-	char filler3[6];				// 62
-	std::string nameId;				// 68
+	int _maxStackSize;
+	std::string atlas;
+	const int id;
+	int _frameCount;
+	int maxDamage;
+	TextureUVCoordinateSet icon;
+	int creativeCategory;
+	bool _handEquipped;
+	bool _isStackedByData;
+	Item* craftingRemainingItem;
+	std::string descriptionId;
 
 public:
 	Item(int);
