@@ -1,5 +1,7 @@
 gui.ok=OK
 
+menu.copyright=©Mojang AB
+
 menu.play=Play
 menu.playOnRealms=Play on Realms
 
@@ -63,7 +65,9 @@ disconnectionScreen.outdatedServer=Could not connect: Outdated server!
 disconnectionScreen.cantConnect=Unable to connect to world.
 disconnectionScreen.serverFull=Server is full!
 disconnectionScreen.noWIFI=You need to be connected through Wifi to play on External servers
-disconnectionScreen.invalidSkin=Invalid skin!
+disconnectionScreen.invalidSkin=Invalid or corrupt skin!
+disconnectionScreen.invalidName=Invalid name!
+disconnectionScreen.loggedinOtherLocation=Logged in from other location
 
 worldError.corrupted=is corrupted and can't be started.
 worldError.notFound=can't be found.
@@ -125,6 +129,7 @@ options.animatetextures=Animated water
 options.dpadscale=D-Pad Size
 options.name=Name
 options.worldsizelimit=Limit World Size
+options.invertYAxis=Invert Y-Axis
 
 gui.login=Login
 gui.logout=Logout
@@ -167,7 +172,7 @@ item.monsterPlacer.entity.Zombie.name=Spawn Zombie
 item.monsterPlacer.entity.Slime.name=Spawn Slime
 item.monsterPlacer.entity.Ghast.name=Spawn Ghast
 item.monsterPlacer.entity.PigZombie.name=Spawn Zombie Pigman
-item.monsterPlacer.entity.EnderMan.name=Spawn Enderman
+item.monsterPlacer.entity.Enderman.name=Spawn Enderman
 item.monsterPlacer.entity.Silverfish.name=Spawn Silverfish
 item.monsterPlacer.entity.CaveSpider.name=Spawn Cave Spider
 item.monsterPlacer.entity.Blaze.name=Spawn Blaze
@@ -190,15 +195,72 @@ item.monsterPlacer.entity.Bat.name=Spawn Bat
 
 skins.browse=Browse
 skins.custom=Custom
-skins.information.selectSkin=Select the model on which your skin fits
-skins.information.invalidCustomSkin=The selected image does not appear to be a Minecraft skin
-skins.information.ingame=Skins can not be changed while playing. Please enter options from the main screen.
+skins.information.selectSkin=Choose the correct model type for your skin
+skins.information.invalidCustomSkin=That's not a Minecraft skin, silly.
+skins.information.ingame=Sorry, you can't change your skin in-game. Access Options from the main menu.
 
 skins.skinpackHeader.standard=Standard
 skins.skinpackHeader.packs=Skin packs
 
 skin.name.alex=Alex
 skin.name.steve=Steve
+
+skins.buy.description=Sorry, you need to purchase the following skin pack to use this locked skin:
+skins.buy.waitingForPurchase=Purchase in progress! This shouldn't take long.
+skins.buy.noConnection=We're unable to connect to the store. Maybe check your internet connection?
+skins.buy.purchaseFailed=Sorry, we were unable to complete your purchase. Maybe check your internet connection?
+skins.buy.buyButton=Buy
+skins.buy.cancelButton=Cancel
+skins.buy.closeButton=Close
+
+skins.show.restorePurchaseButton=Restore
+skins.restore.button=Restore
+skins.restore.description=We're restoring your skins!
+skins.restore.failed=Sorry, we were unable to restore your skins. Maybe check your internet connection?
+
+skinpack.CityFolk=City Folk
+skin.CityFolk.Chef=Chef
+skin.CityFolk.Baker=Baker
+skin.CityFolk.Barmaid=Barmaid
+skin.CityFolk.Barman=Barman
+skin.CityFolk.Baron=Baron
+skin.CityFolk.Baroness=Baroness
+skin.CityFolk.Blacksmith=Blacksmith
+skin.CityFolk.Butcher=Butcher
+skin.CityFolk.Carpenter=Carpenter
+skin.CityFolk.HolyMan=Holy Man
+skin.CityFolk.HolyWoman=Holy Woman
+skin.CityFolk.Jailer=Jailer
+skin.CityFolk.King=King
+skin.CityFolk.Mage=Mage
+skin.CityFolk.Postman=Postman
+skin.CityFolk.Queen=Queen
+skin.CityFolk.Shoemaker=Shoemaker
+skin.CityFolk.Victorian=Victorian
+skin.CityFolk.Watchman=Watchman
+skin.CityFolk.WeaponSmith=Weapon Smith
+
+skinpack.TownFolk=Town Folk
+skin.TownFolk.Bard=Bard
+skin.TownFolk.Castaway=Castaway
+skin.TownFolk.Farmer=Farmer
+skin.TownFolk.Bandit=Bandit
+skin.TownFolk.Forester=Forester
+skin.TownFolk.Gardener=Gardener
+skin.TownFolk.Mime=Mime
+skin.TownFolk.Miner=Miner
+skin.TownFolk.Monk=Monk
+skin.TownFolk.OldLady=Old Lady
+skin.TownFolk.OldMan=Old Man
+skin.TownFolk.Peasant=Peasant
+skin.TownFolk.Rogue=Rogue
+skin.TownFolk.Shopkeeper=Shopkeeper
+skin.TownFolk.StrongMan=Strong Man
+skin.TownFolk.Thief=Thief
+skin.TownFolk.TownCrier=Town Crier
+skin.TownFolk.Townswoman=Townswoman
+skin.TownFolk.Vagrant=Vagrant
+skin.TownFolk.Witch=Witch
 
 
 item.steel_pickaxe.name=Heavy Duty Pickaxe
