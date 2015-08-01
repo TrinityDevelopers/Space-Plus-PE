@@ -6,6 +6,7 @@
 #include "Constants.h"
 #include "space_plus/proxy/ClientProxyCore.h"
 #include "space_plus/items/SPItems.h"
+#include "mcpe/item/PickaxeItem.h"
 
 #define LOG_TAG "SpacePlusPE"
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__))
@@ -19,9 +20,9 @@ static void Item$initItems() {
 
 static void (*_Item$initCreativeItems)();
 static void Item$initCreativeItems() {
-	SPItems::initCreativeItems();
-	
 	_Item$initCreativeItems();
+	
+	SPItems::initCreativeItems();
 }
 
 JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) {
@@ -31,7 +32,7 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) {
 	MSHookFunction((void*) &Item::initItems, (void*) &Item$initItems, (void**) &_Item$initItems);
 	MSHookFunction((void*) &Item::initCreativeItems, (void*) &Item$initCreativeItems, (void**) &_Item$initCreativeItems);
 	
-	ClientProxyCore::bl_armorRenders = (std::array <std::string, 4096>*) dlsym(bl_handle, "bl_armorRenders");
+	bl_armorRenders = (std::array <std::string, 4096>*) dlsym(bl_handle, "bl_armorRenders");
 	
 	return JNI_VERSION_1_2;
 }

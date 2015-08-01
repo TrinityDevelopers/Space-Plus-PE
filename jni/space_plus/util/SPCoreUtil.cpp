@@ -1,5 +1,5 @@
 #include "SPCoreUtil.h"
 
 void SPCoreUtil::registerSpacePlusItem(std::string key, Item* item) {
-    SpacePlusCore::itemList.insert(key, new ItemInstance(item));
+    SpacePlusCore::itemList[key] = new ItemInstance(item);
 }

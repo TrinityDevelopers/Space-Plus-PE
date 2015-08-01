@@ -32,7 +32,8 @@ public:
         int maxUses;
         float efficiencyOnProperMaterial;
         float damageVsEntity;
-        int enchantability;
+		
+		Tier(int a, int b, float c, float d) : harvestLevel(a), maxUses(b), efficiencyOnProperMaterial(c), damageVsEntity(d) {};
 	};
 
 public:

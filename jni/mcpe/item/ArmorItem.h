@@ -28,7 +28,7 @@ public:
 	static ArmorMaterial DIAMOND;
 	static ArmorMaterial GOLD;
 	static ArmorMaterial IRON;
-	static int healthPerSlot[4];
+	static int healthPerSlot[5];
 
 public:
 	int armorType;					// 72
