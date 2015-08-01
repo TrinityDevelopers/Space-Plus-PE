@@ -4,5 +4,7 @@
 
 class IDGenSP {
 public:
+	static int ID;
+	
 	static int findNextItemID();
 };

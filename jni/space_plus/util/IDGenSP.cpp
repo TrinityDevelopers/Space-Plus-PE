@@ -1,9 +1,10 @@
 #include "IDGenSP.h"
 
+int IDGenSP::ID = 0;
+
 int IDGenSP::findNextItemID() {
-    int id = 0;
-	while(Item::items[id + 256] == NULL) {
-		id++;
+	while(Item::items[IDGenSP::ID + 256] != NULL) {
+		IDGenSP::ID++;
 	}
-	return id;
+	return IDGenSP::ID;
 }
