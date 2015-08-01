@@ -40,7 +40,7 @@ void SPItems::initCreativeItems() {
 	Item::addCreativeItem(SPItems::steelAxe, 0);
 	Item::addCreativeItem(SPItems::steelHoe, 0);
 	Item::addCreativeItem(SPItems::steelSpade, 0);*/
-	//Item::addCreativeItem(SPItems::steelSword, 0);
+	Item::addCreativeItem(SPItems::steelSword, 0);
 	/*Item::addCreativeItem(SPItems::steelHelmet, 0);
 	Item::addCreativeItem(SPItems::steelChestplate, 0);
 	Item::addCreativeItem(SPItems::steelLeggings, 0);
