@@ -18,7 +18,7 @@ void SPItems::initItems() {
     /*SPItems::steelAxe = new AxeItemSP("steel_axe");
     SPItems::steelHoe = new HoeItemSP("steel_hoe");
     SPItems::steelSpade = new SpadeItemSP("steel_shovel");*/
-    SPItems::steelSword = new SwordItemSP("steel_sword");
+    SPItems::steelSword = (Item*) new SwordItemSP("steel_sword");
     /*SPItems::steelHelmet = new ArmorItemSP(0, "helmet");
     SPItems::steelChestplate = new ArmorItemSP(1, "chestplate");
     SPItems::steelLeggings = new ArmorItemSP(2, "leggings");

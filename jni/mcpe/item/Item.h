@@ -37,6 +37,77 @@ public:
 	};
 
 public:
+	//void **vtable;				// 0
+	int _maxStackSize;
+	std::string atlas;
+	const int id;
+	int _frameCount;
+	int maxDamage;
+	TextureUVCoordinateSet icon;
+	int creativeCategory;
+	bool _handEquipped;
+	bool _isStackedByData;
+	Item* craftingRemainingItem;
+	std::string descriptionId;
+
+	Item(int);
+
+	virtual ~Item();
+	virtual int getMaxStackSize(const ItemInstance*);
+	virtual Item* setMaxStackSize(unsigned char);
+	virtual bool canBeDepleted();
+	virtual TextureUVCoordinateSet getIcon(int, int, bool) const;
+	virtual int getIconYOffset() const;
+	virtual Item* setIcon(std::string const&, int);
+	virtual Item* setIcon(TextureUVCoordinateSet);
+	virtual bool isMirroredArt() const;
+	virtual void use(ItemInstance&, Player&);
+	virtual bool useOn(ItemInstance*, Player*, int, int, int, signed char, float, float, float);
+	virtual int getMaxUseDuration() const;
+	virtual void useTimeDepleted(ItemInstance*, Level*, Player*);
+	virtual ActionEnum getUseAnimation() const;
+	virtual void releaseUsing(ItemInstance*, Player*, int);
+	virtual float getDestroySpeed(ItemInstance*, Tile*);
+	virtual bool canDestroySpecial(const Tile*) const;
+	virtual void* getLevelDataForAuxValue(int) const;
+	virtual bool isStackedByData() const;
+	virtual int getMaxDamage();
+	virtual int getAttackDamage(Entity*);
+	virtual void hurtEnemy(ItemInstance*, Mob*, Mob*);
+	virtual void interactEnemy(ItemInstance*, Mob*, Player*);
+	virtual void mineBlock(ItemInstance*, int, int, int, int, Mob*);
+	virtual void handEquipped();
+	virtual bool isHandEquipped() const;
+	virtual bool isFood() const;
+	virtual bool isSeed() const;
+	virtual bool isArmor() const;
+	virtual bool isDye() const;
+	virtual bool isLiquidClipItem(int) const;
+	virtual bool requiresInteract() const;
+	virtual std::string getInteractText() const;
+	virtual std::string getName(const ItemInstance*) const;
+	virtual Item* setNameID(std::string const&);
+	virtual bool isEmissive(int) const;
+	virtual int getAnimationFrameFor(Mob&) const;
+	Item* setCategory(int);
+	Item* setMaxDamage(int);
+	Item* setStackedByData(unsigned char);
+	bool _textMatch(const std::string &, const std::string &, bool);
+
+	static void initCreativeItems();
+	static void addCreativeItem(Tile*, short);
+	static void addCreativeItem(Item*, short);
+	static void addCreativeItem(short, short);
+	
+	static Item* items[512];
+
+	static void initItems();
+	
+	static int getIDByName(const std::string &, bool);
+	static TextureAtlasTextureItem getTextureItem(const std::string &);
+	static void setTextureAtlas(std::shared_ptr<TextureAtlas>);
+	static void teardownItems();
+	
 	static Item *apple;
 	static Item *arrow;
 	static Item *bed;
@@ -155,79 +226,4 @@ public:
 	static Item *sword_wood;
 	static Item *wheat;
 	static Item *yellowDust;
-
-public:
-	static Item *items[512];
-	static std::vector<ItemInstance> creativeList;
-
-public:
-	static const char *ICON_DESCRIPTION_PREFIX;
-	static TextureAtlas *_itemTextureAtlas;
-
-public:
-	//void **vtable;				// 0
-	int _maxStackSize;
-	std::string atlas;
-	const int id;
-	int _frameCount;
-	int maxDamage;
-	TextureUVCoordinateSet icon;
-	int creativeCategory;
-	bool _handEquipped;
-	bool _isStackedByData;
-	Item* craftingRemainingItem;
-	std::string descriptionId;
-
-public:
-	Item(int);
-	virtual ~Item();
-	virtual int getMaxStackSize(const ItemInstance *);
-	virtual void setMaxStackSize(unsigned char);
-	virtual bool canBeDepleted();
-	virtual TextureUVCoordinateSet getIcon(int, int, bool) const;
-	virtual int getIconYOffset() const;
-	virtual void setIcon(const std::string &, int);
-	virtual void setIcon(TextureUVCoordinateSet);
-	virtual bool isMirroredArt() const;
-	virtual ItemInstance &use(ItemInstance &, Player &);
-	virtual bool useOn(ItemInstance *, Player *, int, int, int, signed char, float, float, float);
-	virtual int getMaxUseDuration() const;
-	virtual void useTimeDepleted(ItemInstance *, Level *, Player *);
-	virtual ActionEnum getUseAnimation() const;
-	virtual void releaseUsing(ItemInstance *, Player *, int);
-	virtual float getDestroySpeed(ItemInstance *, Tile *);
-	virtual bool canDestroySpecial(const Tile *) const;
-	virtual int getLevelDataForAuxValue(int) const;
-	virtual bool isStackedByData() const;
-	virtual short getMaxDamage();
-	virtual int getAttackDamage(Entity *);
-	virtual void hurtEnemy(ItemInstance *, Mob *, Mob *);
-	virtual void interactEnemy(ItemInstance *, Mob *, Player *);
-	virtual void mineBlock(ItemInstance *, int, int, int, int, Mob *);
-	virtual void handEquipped();
-	virtual bool isHandEquipped() const;
-	virtual bool isFood() const;
-	virtual bool isSeed() const;
-	virtual bool isArmor() const;
-	virtual bool isDye() const;
-	virtual bool isLiquidClipItem(int) const;
-	virtual bool requiresInteract() const;
-	virtual std::string getInteractText() const;
-	virtual std::string getName(const ItemInstance *) const;
-	virtual void setNameID(const std::string &);
-	virtual bool isEmissive(int) const;
-	virtual void getAnimationFrameFor(Mob &) const;
-	static void initItems();
-	static void initCreativeItems();
-	static void addCreativeItem(Item *, short);
-	static void addCreativeItem(Tile *, short);
-	static void addCreativeItem(short, short);
-	static int getIDByName(const std::string &, bool);
-	static TextureAtlasTextureItem getTextureItem(const std::string &);
-	static void setTextureAtlas(std::shared_ptr<TextureAtlas>);
-	static void teardownItems();
-	bool _textMatch(const std::string &, const std::string &, bool);
-	void setCategory(int);
-	void setMaxDamage(int);
-	void setStackedByData(bool);
 };
