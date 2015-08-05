@@ -48,8 +48,3 @@ void SPItems::initCreativeItems() {
 	SPItems::addCreativeItem(SPItems::steelLeggings, 0);
 	SPItems::addCreativeItem(SPItems::steelBoots, 0);*/
 }
-
-void SPItems::addCreativeItem(std::string key) {
-	if(SpacePlusCore::itemList[key] != NULL)	
-		Item::creativeList.push_back(SpacePlusCore::itemList[key]);
-}

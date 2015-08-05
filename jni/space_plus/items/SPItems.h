@@ -33,5 +33,4 @@ public:
 
     static void initItems();
 	static void initCreativeItems();
-	static void addCreativeItem(std::string);
 };
