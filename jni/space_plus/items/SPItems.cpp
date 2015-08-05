@@ -33,16 +33,23 @@ void SPItems::initItems() {
     SPCoreUtil::registerSpacePlusItem("heavyDutyChestplate", SPItems::steelChestplate);
     SPCoreUtil::registerSpacePlusItem("heavyDutyLeggings", SPItems::steelLeggings);
     SPCoreUtil::registerSpacePlusItem("heavyDutyBoots", SPItems::steelBoots);*/
+	
+	SPItems::initCreativeItems();
 }
 
 void SPItems::initCreativeItems() {
-	/*Item::addCreativeItem(SPItems::steelPickaxe, 0);
-	Item::addCreativeItem(SPItems::steelAxe, 0);
-	Item::addCreativeItem(SPItems::steelHoe, 0);
-	Item::addCreativeItem(SPItems::steelSpade, 0);*/
+	/*SPItems::addCreativeItem(SPItems::steelPickaxe, 0);
+	SPItems::addCreativeItem(SPItems::steelAxe, 0);
+	SPItems::addCreativeItem(SPItems::steelHoe, 0);
+	SPItems::addCreativeItem(SPItems::steelSpade, 0);*/
 	Item::addCreativeItem(SPItems::steelSword, 0);
-	/*Item::addCreativeItem(SPItems::steelHelmet, 0);
-	Item::addCreativeItem(SPItems::steelChestplate, 0);
-	Item::addCreativeItem(SPItems::steelLeggings, 0);
-	Item::addCreativeItem(SPItems::steelBoots, 0);*/
+	/*SPItems::addCreativeItem(SPItems::steelHelmet, 0);
+	SPItems::addCreativeItem(SPItems::steelChestplate, 0);
+	SPItems::addCreativeItem(SPItems::steelLeggings, 0);
+	SPItems::addCreativeItem(SPItems::steelBoots, 0);*/
+}
+
+void SPItems::addCreativeItem(std::string key) {
+	if(SpacePlusCore::itemList[key] != NULL)	
+		Item::creativeList.push_back(SpacePlusCore::itemList[key]);
 }

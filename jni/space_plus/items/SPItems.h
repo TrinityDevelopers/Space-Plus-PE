@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <Constants.h>
+#include <SpacePlusCore.h>
 #include "space_plus/util/SPCoreUtil.h"
 #include "mcpe/item/Item.h"
 #include "mcpe/item/ArmorItem.h"
@@ -32,4 +33,5 @@ public:
 
     static void initItems();
 	static void initCreativeItems();
+	static void addCreativeItem(std::string);
 };

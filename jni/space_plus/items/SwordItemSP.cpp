@@ -1,6 +1,6 @@
 #include "SwordItemSP.h"
 
-SwordItemSP::SwordItemSP(std::string assetName) : Item(IDGenSP::findNextItemID()) {
+SwordItemSP::SwordItemSP(std::string assetName) : Item(322 - 256/*IDGenSP::findNextItemID()*/) {
 	setMaxStackSize(1);
 	f1 = SPItems::TOOL_STEEL.damageVsEntity + 4.0F;
 	setMaxDamage(SPItems::TOOL_STEEL.maxUses);
