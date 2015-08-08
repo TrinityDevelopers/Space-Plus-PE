@@ -5,7 +5,7 @@
 #include "../Mob.h"
 #include "../item/ItemEntity.h"
 #include "../../item/ItemInstance.h"
-#include "../../../raknet/RakNetTypes.h"
+#include "../../network/RakNetGUID.h"
 
 class PacketSender;
 class Inventory;

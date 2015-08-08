@@ -7,12 +7,6 @@
 #include "mcpe/item/Item.h"
 #include "mcpe/item/ArmorItem.h"
 #include "mcpe/item/ItemInstance.h"
-#include "PickaxeItemSP.h"
-#include "AxeItemSP.h"
-#include "SpadeItemSP.h"
-#include "HoeItemSP.h"
-#include "SwordItemSP.h"
-#include "ArmorItemSP.h"
 
 class SPItems {
 public:
@@ -25,6 +19,8 @@ public:
     static Item* steelChestplate;
     static Item* steelLeggings;
     static Item* steelBoots;
+	
+	static bool isInited;
 
     static ArmorItem::ArmorMaterial ARMOR_STEEL;
     static Item::Tier TOOL_STEEL;

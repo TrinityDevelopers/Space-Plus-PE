@@ -29,8 +29,9 @@ void SwordItemSP::hurtEnemy(ItemInstance *item, Mob *m1, Mob *m2) {
 	item->hurtAndBreak(1, m2);
 }
 
-void SwordItemSP::mineBlock(ItemInstance *item, int i1, int i2, int i3, int i4, Mob *m) {
+bool SwordItemSP::mineBlock(ItemInstance *item, int i1, int i2, int i3, int i4, Mob *m) {
 	item->hurtAndBreak(2, m);
+	return true;
 }
 
 bool SwordItemSP::isHandEquipped() const {

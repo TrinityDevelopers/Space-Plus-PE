@@ -4,8 +4,8 @@
 class SynchedEntityData
 {
 public:
-	char filler1[16];	// 0
-
+	char filler1[16];
+	
 public:
 	SynchedEntityData();
 	SynchedEntityData(SynchedEntityData &&);

@@ -75,7 +75,7 @@ public:
 	virtual int getAttackDamage(Entity*);
 	virtual void hurtEnemy(ItemInstance*, Mob*, Mob*);
 	virtual void interactEnemy(ItemInstance*, Mob*, Player*);
-	virtual void mineBlock(ItemInstance*, int, int, int, int, Mob*);
+	virtual bool mineBlock(ItemInstance*, int, int, int, int, Mob*);
 	virtual void handEquipped();
 	virtual bool isHandEquipped() const;
 	virtual bool isFood() const;

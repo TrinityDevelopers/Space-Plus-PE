@@ -2,14 +2,12 @@
 
 #include <memory>
 #include "../tileentity/TileEntity.h"
-#include "../util/Brightness.h"
+#include "../CommonTypes.h"
 
 class Level;
 class ChunkSource;
 class TilePos;
-class TileID;
 class LevelChunk;
-class FullTile;
 class HitResult;
 class Vec3;
 class AABB;

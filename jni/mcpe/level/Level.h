@@ -10,6 +10,7 @@
 #include "../client/AppPlatformListener.h"
 #include "../util/Random.h"
 #include "../util/TilePos.h"
+#include "../CommonTypes.h"
 
 class Player;
 class LocalPlayer;
@@ -17,7 +18,6 @@ class Random;
 class MobFactory;
 class SoundPlayer;
 class TileSource;
-class FullTile;
 class EntityDamageSource;
 class LightLayer;
 class LevelChunk;
