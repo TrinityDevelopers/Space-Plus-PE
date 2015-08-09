@@ -25,8 +25,8 @@ void SPItems::initItems() {
 	if(!SPItems::isInited) {
 		SPItems::isInited = true;	
 	} else {
-		//SPItems::steelPickaxe = new PickaxeItemSP("steel_pickaxe");
-		//SPItems::steelAxe = new AxeItemSP("steel_axe");
+		SPItems::steelPickaxe = new PickaxeItemSP("steel_pickaxe");
+		SPItems::steelAxe = new AxeItemSP("steel_axe");
 		SPItems::steelHoe = (Item*) new HoeItemSP("steel_hoe");
 		SPItems::steelSpade = (Item*) new SpadeItemSP("steel_shovel");
 		SPItems::steelSword = (Item*) new SwordItemSP("steel_sword");
@@ -35,9 +35,9 @@ void SPItems::initItems() {
 		SPItems::steelLeggings = new ArmorItemSP(2, "leggings");
 		SPItems::steelBoots = new ArmorItemSP(3, "boots");*/
 
-		//SPCoreUtil::registerSpacePlusItem("heavyDutyPickaxe", SPItems::steelPickaxe);
+		SPCoreUtil::registerSpacePlusItem("heavyDutyPickaxe", SPItems::steelPickaxe);
 		SPCoreUtil::registerSpacePlusItem("heavyDutyShovel", SPItems::steelSpade);
-		//SPCoreUtil::registerSpacePlusItem("heavyDutyAxe", SPItems::steelAxe);
+		SPCoreUtil::registerSpacePlusItem("heavyDutyAxe", SPItems::steelAxe);
 		SPCoreUtil::registerSpacePlusItem("heavyDutyHoe", SPItems::steelHoe);
 		SPCoreUtil::registerSpacePlusItem("heavyDutySword", SPItems::steelSword);
 		/*SPCoreUtil::registerSpacePlusItem("heavyDutyHelmet", SPItems::steelHelmet);
@@ -50,8 +50,8 @@ void SPItems::initItems() {
 }
 
 void SPItems::initCreativeItems() {
-	/*SPItems::addCreativeItem(SPItems::steelPickaxe, 0);
-	SPItems::addCreativeItem(SPItems::steelAxe, 0);*/
+	Item::addCreativeItem(SPItems::steelPickaxe, 0);
+	Item::addCreativeItem(SPItems::steelAxe, 0);
 	Item::addCreativeItem(SPItems::steelHoe, 0);
 	Item::addCreativeItem(SPItems::steelSpade, 0);
 	Item::addCreativeItem(SPItems::steelSword, 0);

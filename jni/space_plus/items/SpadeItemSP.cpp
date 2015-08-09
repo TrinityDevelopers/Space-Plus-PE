@@ -15,6 +15,8 @@ bool SpadeItemSP::canDestroySpecial(const Tile* tile) const {
 bool SpadeItemSP::useOn(ItemInstance* item, Player* player, int x, int y, int z, signed char sc1, float f1, float f2, float f3) {
 	//***just in comment for now because something in here causes a crash***
 	
+	return Item::shovel_iron->useOn(item, player, x, y, z, sc1, f1, f2, f3);
+	
 	/*Level* level = player->tileSource->getLevel();
 	if(player->tileSource->getTilePtr(x, y, z) == Tile::grass) {
 		level->playSound((float)x + 0.5F, (float)y + 0.5F, (float)z + 0.5F, Tile::grassPathBlock->soundType->stepOnSound, 0.8F * Tile::grassPathBlock->soundType->volume, 0.8 * Tile::grassPathBlock->soundType->frequency);
@@ -24,5 +26,4 @@ bool SpadeItemSP::useOn(ItemInstance* item, Player* player, int x, int y, int z,
 			return true;
 		}
 	}*/
-	return true;
 }

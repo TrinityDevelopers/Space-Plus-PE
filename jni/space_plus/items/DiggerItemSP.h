@@ -14,6 +14,8 @@ protected:
 private:
 	float damageVsEntity;
 public:
+	int harvestLevel;
+public:
     DiggerItemSP(int, float, Item::Tier, std::vector<Tile*>);
 	virtual float getDestroySpeed(ItemInstance*, Tile*);
 	virtual void hurtEnemy(ItemInstance*, Mob*, Mob*);

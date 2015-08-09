@@ -6,6 +6,7 @@ DiggerItemSP::DiggerItemSP(int id, float efficiency, Item::Tier category, std::v
 	this->setMaxDamage(category.maxUses);
 	this->efficiencyOnProperMaterial = category.efficiencyOnProperMaterial;
 	this->damageVsEntity = efficiency + category.damageVsEntity;
+	this->harvestLevel = category.harvestLevel;
 }
 
 float DiggerItemSP::getDestroySpeed(ItemInstance* item, Tile* tile) {
