@@ -12,8 +12,10 @@ bool SpadeItemSP::canDestroySpecial(const Tile* tile) const {
 	return tile == Tile::topSnow ? true : (tile == Tile::snow);
 }
 
-/*bool SpadeItemSP::useOn(ItemInstance* item, Player* player, int x, int y, int z, signed char sc1, float f1, float f2, float f3) {
-	Level* level = player->tileSource->getLevel();
+bool SpadeItemSP::useOn(ItemInstance* item, Player* player, int x, int y, int z, signed char sc1, float f1, float f2, float f3) {
+	//***just in comment for now because something in here causes a crash***
+	
+	/*Level* level = player->tileSource->getLevel();
 	if(player->tileSource->getTilePtr(x, y, z) == Tile::grass) {
 		level->playSound((float)x + 0.5F, (float)y + 0.5F, (float)z + 0.5F, Tile::grassPathBlock->soundType->stepOnSound, 0.8F * Tile::grassPathBlock->soundType->volume, 0.8 * Tile::grassPathBlock->soundType->frequency);
 		item->hurtAndBreak(1, player);
@@ -21,6 +23,6 @@ bool SpadeItemSP::canDestroySpecial(const Tile* tile) const {
 			player->tileSource->setTileAndData(x, y, z, {Tile::grassPathBlock->id, 0}, 3);
 			return true;
 		}
-	}
+	}*/
 	return true;
-}*/
+}

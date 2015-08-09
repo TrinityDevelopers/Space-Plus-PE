@@ -14,5 +14,5 @@ public:
 public:
     SpadeItemSP(std::string);
 	virtual bool canDestroySpecial(const Tile*) const;
-	//virtual bool useOn(ItemInstance*, Player*, int, int, int, signed char, float, float, float);
+	virtual bool useOn(ItemInstance*, Player*, int, int, int, signed char, float, float, float);
 };
