@@ -1,8 +1,12 @@
 #include "SpadeItemSP.h"
 
+int SpadeItemSP::spadeId = 0;
+
 const std::vector<Tile*> SpadeItemSP::spadeBlocks = {Tile::grass, Tile::dirt, Tile::sand, Tile::gravel, Tile::topSnow, Tile::snow, Tile::clay, Tile::farmland, /*Tile::soul_sand,*/ Tile::mycelium};
 
-SpadeItemSP::SpadeItemSP(std::string assetName) : DiggerItemSP(IDGenSP::findNextItemID(), 1.0F, SPItems::TOOL_STEEL, spadeBlocks) {
+SpadeItemSP::SpadeItemSP(std::string assetName) : DiggerItemSP(SPCoreUtil::findNextItemID(spadeId), 1.0F, SPItems::TOOL_STEEL, spadeBlocks) {
+	if(!spadeId)
+		spadeId = SPCoreUtil::ItemID - 256;
     setNameID(assetName);
     setIcon(assetName, 0);
 	setCategory(3);

@@ -17,6 +17,7 @@ class Mob;
 class LocalPlayer;
 class ClientSideNetworkHandler;
 class ExternalFileLevelStorageSource;
+typedef bool GameType;
 
 // Size : 248
 class Minecraft : public App
@@ -51,13 +52,13 @@ public:
 	virtual void update();
 	virtual void init();
 	virtual void teardown();
-	virtual void selectLevel(const std::string &, const std::string &, const LevelSettings &);
-	virtual void setLevel(std::unique_ptr<Level>, const std::string &, Player *);
+	virtual void setGameMode(GameType);
 	virtual void startFrame();
 	virtual void updateGraphics(const Timer &);
 	virtual void endFrame();
 	virtual void tick(int, int);
 	virtual void leaveGame(bool);
+	virtual void setupCommandParser(ServerCommandParser &);
 	virtual void play(const std::string &, float, float, float, float, float);
 	virtual void playUI(const std::string &, float, float);
 	virtual void updateSoundLocation(Mob *, float);
@@ -65,22 +66,20 @@ public:
 	virtual void sendLocalMessage(const std::string &, const std::string &);
 	virtual LocalPlayer *getPlayer();
 	virtual void onInternetUpdate();
+	virtual void onPrepChangeDimension(Player *);
 	virtual void createLocalClientNetworkHandler();
-	virtual void getSoundPlayer();
 	virtual void getVibration();
-	void cancelLocateMultiplayer();
+	virtual void createSkin(bool);
+	virtual void getSoundPlayer();
 	ServerCommandParser *getCommandParser();
 	ExternalFileLevelStorageSource *getLevelSource();
 	PacketSender *getPacketSender();
 	std::string getServerName();
 	void hostMultiplayer(int, int);
 	void init(const std::string &);
-	bool isCreativeMode();
 	bool isModded();
 	bool isOnlineClient();
 	void lookForControl();
 	void removeAllPlayers();
-	void setIsCreativeMode(bool);
 	void setLeaveGame();
-	void setNetEventCallBack(std::unique_ptr<NetEventCallback>);
 };

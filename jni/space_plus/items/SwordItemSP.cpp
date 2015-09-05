@@ -1,8 +1,13 @@
 #include "SwordItemSP.h"
 
-SwordItemSP::SwordItemSP(std::string assetName) : Item(IDGenSP::findNextItemID()) {
+int SwordItemSP::swordId = 0;
+
+SwordItemSP::SwordItemSP(std::string assetName) : Item(SPCoreUtil::findNextItemID(swordId)) {
+	if(!swordId)
+		swordId = SPCoreUtil::ItemID - 256;
 	setMaxStackSize(1);
 	f1 = SPItems::TOOL_STEEL.damageVsEntity + 4.0F;
+	enchantability = SPItems::TOOL_STEEL.enchantability;
 	setMaxDamage(SPItems::TOOL_STEEL.maxUses);
     setNameID(assetName);
     setIcon(assetName, 0);
@@ -40,4 +45,24 @@ bool SwordItemSP::isHandEquipped() const {
 
 int SwordItemSP::getAttackDamage(Entity *ent) {
 	return this->f1;
+}
+
+int SwordItemSP::getEnchantSlot() const {
+	return 16;
+}
+
+int SwordItemSP::getEnchantValue() const {
+	return this->enchantability;
+}
+
+bool SwordItemSP::isValidRepairItem(const ItemInstance& item1, const ItemInstance& item2) {
+	return false; //ItemInstance(SPItems::basicItem, whatever) == item2;
+} 
+
+void SwordItemSP::appendFormattedHovertext(std::string& string, const ItemInstance& item) const {
+	return Item::sword_iron->appendFormattedHovertext(string, item);
+}
+
+bool SwordItemSP::canDestroyInCreative() {
+	return false;
 }

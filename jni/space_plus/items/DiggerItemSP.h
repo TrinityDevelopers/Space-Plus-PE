@@ -22,4 +22,5 @@ public:
 	virtual bool mineBlock(ItemInstance*, int, int, int, int, Mob*);
 	virtual bool isHandEquipped() const;
 	virtual int getAttackDamage(Entity*);
+	virtual void appendFormattedHovertext(std::string&, const ItemInstance&) const;
 };

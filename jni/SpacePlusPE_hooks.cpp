@@ -4,26 +4,28 @@
 #include <stdlib.h>
 #include <Substrate.h>
 #include "Constants.h"
-#include "space_plus/proxy/ClientProxyCore.h"
-#include "space_plus/items/SPItems.h"
+#include "SpacePlusCore.h"
 
 #define LOG_TAG "SpacePlusPE"
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__))
 
-static void (*_Item$initCreativeItems)();
-static void Item$initCreativeItems() {
-	_Item$initCreativeItems();
+class Minecraft;
+
+static void (*_Minecraft$init)(Minecraft*, const std::string&);
+static void Minecraft$init(Minecraft* self, const std::string& string) {
+	_Minecraft$init(self, string);
 	
-	SPItems::initItems();
+	SpacePlusCore::instance->preInit();
 }
 
 JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) {
 	void* handle = dlopen("libminecraftpe.so", RTLD_LAZY);
 	void* bl_handle = dlopen("libmcpelauncher.so", RTLD_LAZY);
+	void* Minecraft$init_symbol = dlsym(handle, "_ZN9Minecraft4initERKSs");
 	
-	MSHookFunction((void*) &Item::initCreativeItems, (void*) &Item$initCreativeItems, (void**) &_Item$initCreativeItems);
+	MSHookFunction(Minecraft$init_symbol, (void*) &Minecraft$init, (void**) &_Minecraft$init);
 	
-	bl_armorRenders = (std::array <std::string, 4096>*) dlsym(bl_handle, "bl_armorRenders");
+	bl_armorRenders = (std::string**) dlsym(bl_handle, "bl_armorRenders");
 	
 	return JNI_VERSION_1_2;
 }

@@ -12,7 +12,9 @@ class Model : public AppPlatformListener
 {
 public:
 	// void **vtable;					// 0
-	char filler1[32];					// 4
+	char filler1[8];					// 4
+	bool isRiding;						// 12
+	char filler2[20];					// 16
 	MaterialPtr entity;					// 36
 	MaterialPtr entity_alphatest;		// 48
 	MaterialPtr entity_alphablend;		// 60

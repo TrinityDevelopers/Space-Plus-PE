@@ -5,14 +5,18 @@
 
 #include "mcpe/item/ItemInstance.h"
 #include "mcpe/item/Item.h"
-#include "space_plus/proxy/CommonProxyCore.h"
+#include "space_plus/proxy/ClientProxyCore.h"
 
 class SpacePlusCore {
 public:
 	static const std::string NAME;
 
-	static CommonProxyCore* proxy;
+	static ClientProxyCore* proxy;
+	
+	static SpacePlusCore* instance;
 	
     static std::map<std::string, ItemInstance*> itemList; 
     static std::map<std::string, ItemInstance*> blocksList; 
+	
+	void preInit();
 };

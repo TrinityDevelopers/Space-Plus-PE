@@ -19,8 +19,6 @@ public:
     static Item* steelChestplate;
     static Item* steelLeggings;
     static Item* steelBoots;
-	
-	static bool isInited;
 
     static ArmorItem::ArmorMaterial ARMOR_STEEL;
     static Item::Tier TOOL_STEEL;

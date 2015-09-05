@@ -9,4 +9,5 @@ public:
 	virtual ~HoeItem();
 	virtual bool useOn(ItemInstance *, Player *, int, int, int, signed char, float, float, float);
 	virtual bool isHandEquipped() const;
+	virtual int getEnchantSlot();
 };

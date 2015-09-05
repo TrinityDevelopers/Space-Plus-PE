@@ -57,6 +57,7 @@ public:
 	virtual void isNaturalDimension();
 	virtual void addEntity(std::unique_ptr<Entity>);
 	virtual void addPlayer(Player *);
+	virtual void addGlobalEntity(std::unique_ptr<Entity>);
 	virtual void onPlayerDeath(Player &, EntityDamageSource &);
 	virtual void tick();
 	virtual void directTickEntities();
@@ -68,7 +69,6 @@ public:
 	virtual void removeEntity(std::unique_ptr<Entity> &&);
 	virtual void removeEntity(Entity &);
 	virtual void onAppSuspended();
-	virtual void onAppResumed();
 	void _chunkDirty(TileSource *, LevelChunk *);
 	void _cleanupDisconnectedPlayers();
 	void _createGenerator(GeneratorType);

@@ -4,7 +4,7 @@
 #include <array>
 #include "CommonProxyCore.h"
 
-static std::array <std::string, 4096>* bl_armorRenders;
+static std::string** bl_armorRenders;
 
 class ClientProxyCore : public CommonProxyCore {
 private:

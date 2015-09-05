@@ -15,10 +15,12 @@ public:
 		int i3;		// 8
 		int i4;		// 12
 		int i5;		// 16
+		int i6;
 
 	public:
-		ArmorMaterial(int, int, int, int, int);
+		ArmorMaterial(int, int, int, int, int, int);
 		int getDefenseForSlot(int);
+		int getEnchantValue();
 		int getHealthForSlot(int);
 	};
 
@@ -40,4 +42,8 @@ public:
 	ArmorItem(int, const ArmorItem::ArmorMaterial &, int, int);
 	virtual ~ArmorItem();
 	virtual bool isArmor() const;
+	virtual bool isValidRepairItem(const ItemInstance&, const ItemInstance&); 
+	virtual int getEnchantSlot() const; 
+	virtual int getEnchantValue() const; 
+	ItemInstance getTierItem();
 };

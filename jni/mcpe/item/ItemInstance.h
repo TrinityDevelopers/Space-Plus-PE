@@ -15,8 +15,9 @@ class Level;
 class ItemInstance
 {
 public:
-	char filler1[4];	// 0
+	int id;	// 0
 	int damage;			// 4
+	CompoundTag* tag;
 	Item *item;			// 8
 	Tile *tile;			// 12
 
@@ -24,13 +25,16 @@ public:
 	ItemInstance(const Item *);
 	ItemInstance(const Item *, int);
 	ItemInstance(const Item *, int, int);
+	ItemInstance(const Item *, int, int, const CompoundTag*);
 	ItemInstance(const ItemInstance &);
 	ItemInstance(const Tile *);
 	ItemInstance(const Tile *, int);
 	ItemInstance(const Tile *, int, int);
 	ItemInstance(bool);
 	ItemInstance(int, int, int);
+	ItemInstance(int, int, int, const CompoundTag*);
 	ItemInstance();
+	void _getHoverFormattingPrefix();
 	void _setItem(int);
 	void add(int);
 	void canDestroySpecial(Tile *);
@@ -39,16 +43,27 @@ public:
 	void fromTag(CompoundTag *);
 	int getAttackDamage(Entity *);
 	short getAuxValue() const;
+	int getBaseRepairCost();
+	std::string getCustomName();
 	short getDamageValue() const;
 	int getDestroySpeed(Tile *);
+	std::string getEffectName();
+	int getEnchantSlot();
+	int getEnchantValue();
+	std::string getFormattedHovertext();
+	std::string getHoverName();
 	void getIcon(int, bool) const;
 	int getId() const;
 	int getIdAux() const;
+	int getIdAuxEnchanted() const;
 	int getMaxDamage() const;
 	int getMaxStackSize() const;
 	int getMaxUseDuration() const;
 	std::string getName() const;
 	int getUseAnimation() const;
+	bool hasCustomHoverName();
+	bool hasSameUserData(ItemInstance const&);
+	bool hasUserData();
 	void hurtAndBreak(int, Mob *);
 	void hurtEnemy(Mob *, Mob *);
 	void init(int, int, int);
@@ -56,13 +71,17 @@ public:
 	bool isArmorItem(const ItemInstance *);
 	bool isDamageableItem() const;
 	bool isDamaged() const;
+	bool isEnchated();
+	bool isEnchantingBook();
+	bool isFoil();
+	bool isFullStack();
 	bool isItem(const ItemInstance *);
 	bool isLiquidClipItem();
 	bool isNull() const;
 	bool isStackable(const ItemInstance *, const ItemInstance *);
 	bool isStackable() const;
 	bool isStackedByData() const;
-	void load(CompoundTag *);
+	void load(CompoundTag const&);
 	bool matches(const ItemInstance *) const;
 	bool matches(const ItemInstance *, const ItemInstance *);
 	bool matchesNulls(ItemInstance const *, const ItemInstance *);
@@ -71,11 +90,13 @@ public:
 	void releaseUsing(Player *, int);
 	void remove(int);
 	void sameItemAndAux(ItemInstance *) const;
-	void save(CompoundTag *);
+	void save();
 	void set(int);
 	void setAuxValue(short);
+	void setCustomName(std::string const&);
 	void setDescriptionId(const std::string &);
 	void setNull();
+	void setRepairCost(int);
 	void snap(Player *);
 	std::string toString() const;
 	void use(Player &);

@@ -2,14 +2,13 @@
 #include <string>
 
 #include "DiggerItemSP.h"
-#include "mcpe/level/TileSource.h"
-#include "mcpe/level/Level.h"
-#include "mcpe/entity/player/Player.h"
-#include "space_plus/util/IDGenSP.h"
+#include "space_plus/util/SPCoreUtil.h"
+#include "mcpe/tile/Tile.h"
 #include "SPItems.h"
 
 class SpadeItemSP : public DiggerItemSP {
 public:
+	static int spadeId;
 	static const std::vector<Tile*> spadeBlocks;
 public:
     SpadeItemSP(std::string);

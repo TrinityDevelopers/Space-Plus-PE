@@ -29,3 +29,7 @@ bool DiggerItemSP::isHandEquipped() const {
 int DiggerItemSP::getAttackDamage(Entity* ent) {
 	return this->damageVsEntity;
 }
+
+void DiggerItemSP::appendFormattedHovertext(std::string& string, const ItemInstance& item) const {
+	return Item::pickAxe_iron->appendFormattedHovertext(string, item);
+}
