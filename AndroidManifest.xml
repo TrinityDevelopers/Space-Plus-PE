@@ -15,7 +15,7 @@
     <meta-data android:name="net.zhuoweizhang.mcpelauncher.api.nativelibname"
         android:value="com.trinitydevelopers.spaceplus.addon"/>
 
-    <meta-data android:name="net.zhuoweizhang.mcpelauncher.api.targetmcpeversion" android:value="0.12.1"/>
+    <meta-data android:name="net.zhuoweizhang.mcpelauncher.api.targetmcpeversion" android:value="0.12.1.b13"/>
     </application>
 
 </manifest> 
