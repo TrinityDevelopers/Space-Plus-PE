@@ -91,7 +91,7 @@ public:
 	virtual bool isDye() const;
 	virtual bool isFoil(const ItemInstance*) const; 
 	virtual bool isThrowable() const; 
-	virtual bool canDestroyInCreative();
+	virtual bool canDestroyInCreative() const;
 	virtual bool isLiquidClipItem(int) const;
 	virtual bool requiresInteract() const;
 	virtual std::string getInteractText() const;
