@@ -15,6 +15,7 @@ private:
 	float damageVsEntity;
 public:
 	int harvestLevel;
+	float enchantability;
 public:
     DiggerItemSP(int, float, Item::Tier, std::vector<Tile*>);
 	virtual float getDestroySpeed(ItemInstance*, Tile*);
@@ -23,4 +24,6 @@ public:
 	virtual bool isHandEquipped() const;
 	virtual int getAttackDamage(Entity*);
 	virtual void appendFormattedHovertext(std::string&, const ItemInstance&) const;
+	virtual int getEnchantValue() const;
+	virtual bool isValidRepairItem(const ItemInstance&, const ItemInstance&); 
 };
