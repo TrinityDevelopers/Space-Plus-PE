@@ -6,6 +6,7 @@
 class SPCoreUtil {
 public:
 	static int ItemID;
+	static std::string armorTextures[4096];
 
 	static void registerSpacePlusItem(std::string, Item*);
 	

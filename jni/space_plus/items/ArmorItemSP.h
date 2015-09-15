@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <vector>
 
 #include <SpacePlusCore.h>
 #include "space_plus/util/SPCoreUtil.h"
@@ -9,6 +10,8 @@
 
 class ArmorItemSP : public ArmorItem {
 public:
+	static std::vector<int> armorIds;
+	
     ArmorItemSP(int, std::string);
 	
 	void setArmorTexture(int);

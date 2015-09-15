@@ -22,9 +22,9 @@ Item::Tier SPItems::TOOL_STEEL = Item::Tier(3, 768, 5.0F, 2.0F, 8);
 void SPItems::initItems() {
 	SPItems::steelPickaxe = new PickaxeItemSP("steel_pickaxe");
 	SPItems::steelAxe = new AxeItemSP("steel_axe");
-	SPItems::steelHoe = (Item*) new HoeItemSP("steel_hoe");
-	SPItems::steelSpade = (Item*) new SpadeItemSP("steel_shovel");
-	SPItems::steelSword = (Item*) new SwordItemSP("steel_sword");
+	SPItems::steelHoe =  new HoeItemSP("steel_hoe");
+	SPItems::steelSpade =  new SpadeItemSP("steel_shovel");
+	SPItems::steelSword =  new SwordItemSP("steel_sword");
 	/*SPItems::steelHelmet = new ArmorItemSP(0, "helmet");
 	SPItems::steelChestplate = new ArmorItemSP(1, "chestplate");
 	SPItems::steelLeggings = new ArmorItemSP(2, "leggings");
