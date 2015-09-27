@@ -1,12 +1,14 @@
 #pragma once
 
+#include <vector>
+
 #include <SpacePlusCore.h>
 #include "mcpe/item/Item.h"
 
 class SPCoreUtil {
 public:
 	static int ItemID;
-	static std::string armorTextures[4096];
+	static std::vector<std::string> armorTextures;
 
 	static void registerSpacePlusItem(std::string, Item*);
 	

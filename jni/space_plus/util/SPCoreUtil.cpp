@@ -2,6 +2,8 @@
 
 int SPCoreUtil::ItemID = 256;
 
+std::vector<std::string> SPCoreUtil::armorTextures = std::vector<std::string>(4096);
+
 void SPCoreUtil::registerSpacePlusItem(std::string key, Item* item) {
     SpacePlusCore::itemList[key] = new ItemInstance(item);
 }

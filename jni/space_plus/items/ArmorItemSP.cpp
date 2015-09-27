@@ -1,7 +1,11 @@
 #include "ArmorItemSP.h"
 
-ArmorItemSP::ArmorItemSP(int armorIndex, std::string assetSuffix) : ArmorItem(SPCoreUtil::findNextItemID(0), SPItems::ARMOR_STEEL, 0, armorIndex) {
-    setNameID("steel_" + assetSuffix);
+std::vector<int> ArmorItemSP::armorIds;
+
+ArmorItemSP::ArmorItemSP(int armorIndex, std::string assetSuffix) : ArmorItem(SPCoreUtil::findNextItemID(armorIds[armorIndex]), SPItems::ARMOR_STEEL, 0, armorIndex) {
+    if(!armorIds[armorIndex])
+		armorIds[armorIndex] = SPCoreUtil::ItemID - 256;
+	setNameID("steel_" + assetSuffix);
     setIcon("steel_" + assetSuffix, 0);
 	setCategory(3);
 	setArmorTexture(armorIndex);

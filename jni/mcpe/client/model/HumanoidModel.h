@@ -11,9 +11,9 @@ public:
 	static float OVERLAY_SCALE;
 
 public:
-	ModelPart head;		// 120
-	ModelPart headWear;	// 248
-	ModelPart body;		// 376
+	ModelPart head;		// 140
+	ModelPart headWear;	// 296
+	ModelPart body;		// 452
 	ModelPart RightAim;	// 504
 	ModelPart LeftAim;	// 632
 	ModelPart RightLeg;	// 760

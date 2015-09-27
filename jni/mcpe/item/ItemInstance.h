@@ -15,7 +15,7 @@ class Level;
 class ItemInstance
 {
 public:
-	int id;	// 0
+	int count;	// 0
 	int damage;			// 4
 	CompoundTag* tag;
 	Item *item;			// 8

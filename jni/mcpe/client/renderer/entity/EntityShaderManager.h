@@ -15,7 +15,6 @@ public:
 	MaterialPtr entity;				// 4
 	MaterialPtr entity_alphatest;	// 16
 	MaterialPtr entity_static;		// 28
-	char filler1[12];				// 40
 
 public:
 	EntityShaderManager();

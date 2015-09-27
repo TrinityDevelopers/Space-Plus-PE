@@ -50,7 +50,7 @@ void SPItems::initCreativeItems() {
 	Item::addCreativeItem(SPItems::steelSpade, 0);
 	Item::addCreativeItem(SPItems::steelSword, 0);
 	/*Item::addCreativeItem(SPItems::steelHelmet, 0);
-	SPItems::addCreativeItem(SPItems::steelChestplate, 0);
-	SPItems::addCreativeItem(SPItems::steelLeggings, 0);
-	SPItems::addCreativeItem(SPItems::steelBoots, 0);*/
+	Item::addCreativeItem(SPItems::steelChestplate, 0);
+	Item::addCreativeItem(SPItems::steelLeggings, 0);
+	Item::addCreativeItem(SPItems::steelBoots, 0);*/
 }

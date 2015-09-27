@@ -4,6 +4,7 @@
 #include <string>
 class Model;
 class Matrix;
+class TextureOffset;
 
 // Size : 128
 class ModelPart
@@ -20,26 +21,22 @@ public:
 	float offsetY;			// 32
 	float offsetZ;			// 36
 	std::vector<ModelPart *> childModels;	// 40
-	std::string boxName;	// 52
-	int textureWidth;		// 56
-	int textureHeight;		// 60
-	char filler1[4];		// 64
-	int textureOffsetX;		// 68
-	int textureOffsetY;		// 72
-	bool isHidden;			// 76
-	char filler2[44];		// 80
-	Model *baseModel;		// 124
+	int textureWidth;		// 52
+	int textureHeight;		// 56
+	char filler1[4];		// 60
+	int textureOffsetX;		// 64
+	int textureOffsetY;		// 68
+	bool isHidden;			// 72
+	char filler2[76];		// 76
+	Model *baseModel;		// 152
 
 public:
 	ModelPart(ModelPart &&);
 	ModelPart(int, int, int, int);
-	ModelPart(const std::string &);
 	ModelPart(Model *, int, int, int, int);
 	~ModelPart();
-	void _init(int, int);
-	void addBox(float, float, float, int, int, int);
 	void addBox(float, float, float, int, int, int, float);
-	void addBox(const std::string &, float, float, float, int, int, int);
+	void addBoxMapTex(float, float, float, int, int, int, TextureOffset);
 	void addChild(ModelPart *);
 	void compile(float);
 	void draw(float);
