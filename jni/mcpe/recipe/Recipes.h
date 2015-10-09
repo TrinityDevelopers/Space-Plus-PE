@@ -2,14 +2,18 @@
 
 #include <string>
 #include <vector>
-
-class ItemInstance;
+#include "mcpe/item/ItemInstance.h"
 
 class Recipes {
 public:
-	class Type {
-		
+	struct Type {
+		Item* item;
+		Tile* tile;
+		ItemInstance inst;
+		char letter;
 	};
+	
+	static Recipes* getInstance();
 	static Recipes* instance;
 
 	Recipes();
@@ -18,12 +22,7 @@ public:
 	void Shape(const std::string&);
 	void Shape(const std::string&, const std::string&);
 	void Shape(const std::string&, const std::string&, const std::string&);
-	static Recipes* getInstance();
 	void addShapedRecipe(ItemInstance const&, std::vector<std::string> const&, std::vector<Recipes::Type> const&);
+	void addShapedRecipe(ItemInstance const&, std::string const&, std::string const&, std::string const&, std::vector<Recipes::Type> const&);
 	void addShapelessRecipe(ItemInstance const&, std::vector<Recipes::Type> const&);
 };
-
-static std::vector<Recipes::Type> (*recipeTypeDefinition4)(char, ItemInstance, char, ItemInstance, char, ItemInstance, char, ItemInstance);
-static std::vector<Recipes::Type> (*recipeTypeDefinition3)(char, ItemInstance, char, ItemInstance, char, ItemInstance);
-static std::vector<Recipes::Type> (*recipeTypeDefinition2)(char, ItemInstance, char, ItemInstance);
-static std::vector<Recipes::Type> (*recipeTypeDefinition1)(char, ItemInstance);

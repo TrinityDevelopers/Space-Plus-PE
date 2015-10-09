@@ -1,25 +1,41 @@
 #include "RecipeManagerSP.h"
 
-void RecipeManagerSP::loadRecipes() {
+void RecipeManagerSP::loadRecipes(Recipes* instance) {
+	RecipeUtil::setInstance(instance);
+	
 	RecipeManagerSP::addUniversalRecipes();
 }
 
 void RecipeManagerSP::addUniversalRecipes() {
-    RecipeUtil::addRecipe(ItemInstance(SPItems::steelPickaxe, 1), "YYY", " X ", " X ", std::map<char, ItemInstance>{{'Y', ItemInstance(Item::stick)/*"compressedSteel"*/}, {'X', ItemInstance(Item::stick)}});
+	RecipeUtil::pushIngredient(ItemInstance(Item::ironIngot)/*SpacePlusCore::itemList["compressedSteel"]*/, 'Y');
+	RecipeUtil::pushIngredient(ItemInstance(Item::stick), 'X');
+    RecipeUtil::addRecipe(ItemInstance(SPItems::steelPickaxe), {"YYY", " X ", " X "}); 
+	
+	RecipeUtil::pushIngredient(ItemInstance(Item::ironIngot)/*SpacePlusCore::itemList["compressedSteel"]*/, 'Y');
+	RecipeUtil::pushIngredient(ItemInstance(Item::stick), 'X');
+    RecipeUtil::addRecipe(ItemInstance(SPItems::steelAxe), {"YY ", "YX ", " X "});
+	
+	RecipeUtil::pushIngredient(ItemInstance(Item::ironIngot)/*SpacePlusCore::itemList["compressedSteel"]*/, 'Y');
+	RecipeUtil::pushIngredient(ItemInstance(Item::stick), 'X');
+    RecipeUtil::addRecipe(ItemInstance(SPItems::steelHoe), {"YY ", " X ", " X "});
+	
+	RecipeUtil::pushIngredient(ItemInstance(Item::ironIngot)/*SpacePlusCore::itemList["compressedSteel"]*/, 'Y');
+	RecipeUtil::pushIngredient(ItemInstance(Item::stick), 'X');
+    RecipeUtil::addRecipe(ItemInstance(SPItems::steelSpade), {" Y ", " X ", " X "});
+	
+	RecipeUtil::pushIngredient(ItemInstance(Item::ironIngot)/*SpacePlusCore::itemList["compressedSteel"]*/, 'Y');
+	RecipeUtil::pushIngredient(ItemInstance(Item::stick), 'X');
+    RecipeUtil::addRecipe(ItemInstance(SPItems::steelSword), {" Y ", " Y ", " X "};
+	
+    /*RecipeUtil::pushIngredient(ItemInstance(Item::ironIngot)/*SpacePlusCore::itemList["compressedSteel"], 'Y');
+	RecipeUtil::addRecipe(ItemInstance(SPItems::steelBoots), {"X X", "X X", "   "});
 
-    RecipeUtil::addRecipe(ItemInstance(SPItems::steelAxe, 1), "YY ", "YX ", " X ", std::map<char, ItemInstance>{{'Y', ItemInstance(Item::stick)/*"compressedSteel"*/}, {'X', ItemInstance(Item::stick)}});
+	RecipeUtil::pushIngredient(ItemInstance(Item::ironIngot)/*SpacePlusCore::itemList["compressedSteel"], 'Y');
+    RecipeUtil::addRecipe(ItemInstance(SPItems::steelChestplate), {"X X", "XXX", "XXX"});
 
-    RecipeUtil::addRecipe(ItemInstance(SPItems::steelHoe, 1), "YY ", " X ", " X ", std::map<char, ItemInstance>{{'Y', ItemInstance(Item::stick)/*"compressedSteel"*/}, {'X', ItemInstance(Item::stick)}});
+	RecipeUtil::pushIngredient(ItemInstance(Item::ironIngot)/*SpacePlusCore::itemList["compressedSteel"], 'Y');
+    RecipeUtil::addRecipe(ItemInstance(SPItems::steelLeggings), {"XXX", "X X", "X X"});
 
-    RecipeUtil::addRecipe(ItemInstance(SPItems::steelSpade, 1), " Y ", " X ", " X ", std::map<char, ItemInstance>{{'Y', ItemInstance(Item::stick)/*"compressedSteel"*/}, {'X', ItemInstance(Item::stick)}});
-
-    RecipeUtil::addRecipe(ItemInstance(SPItems::steelSword, 1), " Y ", " Y ", " X ", std::map<char, ItemInstance>{{'Y', ItemInstance(Item::stick)/*"compressedSteel"*/}, {'X', ItemInstance(Item::stick)}});
-
-    /*RecipeUtil::addRecipe(ItemInstance(SPItems::steelBoots, 1), "X X", "X X", "   ", std::map<char, ItemInstance>{{'X', ItemInstance(Item::stick)/*"compressedSteel"}});
-
-    RecipeUtil::addRecipe(ItemInstance(SPItems::steelChestplate, 1), "X X", "XXX", "XXX", std::map<char, ItemInstance>{{'X', ItemInstance(Item::stick)/*"compressedSteel"}});
-
-    RecipeUtil::addRecipe(ItemInstance(SPItems::steelLeggings, 1), "XXX", "X X", "X X", std::map<char, ItemInstance>{{'X', ItemInstance(Item::stick)/*"compressedSteel"}});
-
-    RecipeUtil::addRecipe(ItemInstance(SPItems::steelHelmet, 1), "XXX", "X X", "   ", std::map<char, ItemInstance>{{'X', ItemInstance(Item::stick)/*"compressedSteel"}});*/
+	RecipeUtil::pushIngredient(ItemInstance(Item::ironIngot)/*SpacePlusCore::itemList["compressedSteel"], 'Y');
+    RecipeUtil::addRecipe(ItemInstance(SPItems::steelHelmet), {"XXX", "X X", "   "});*/
 }

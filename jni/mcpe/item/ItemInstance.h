@@ -15,12 +15,13 @@ class Level;
 class ItemInstance
 {
 public:
-	int count;	// 0
+	int count;			// 0
 	int damage;			// 4
-	CompoundTag* tag;
-	Item *item;			// 8
-	Tile *tile;			// 12
-
+	CompoundTag* tag;	// 8
+	Item *item;			// 12
+	Tile *tile;			// 16
+	char filler[4];		// 20
+	
 public:
 	ItemInstance(const Item *);
 	ItemInstance(const Item *, int);
