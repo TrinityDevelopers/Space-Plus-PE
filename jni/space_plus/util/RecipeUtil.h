@@ -1,11 +1,12 @@
 #pragma once
 
-#include <map>
-#include <iterator>
+#include <string>
+#include <vector>
 
 #include "mcpe/item/ItemInstance.h"
 #include "mcpe/item/Item.h"
 #include "mcpe/recipe/Recipes.h"
+
 
 class RecipeUtil {
 private: 
