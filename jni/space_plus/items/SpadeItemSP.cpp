@@ -12,6 +12,10 @@ SpadeItemSP::SpadeItemSP(std::string assetName) : DiggerItemSP(SPCoreUtil::findN
 	setCategory(3);
 }
 
+float AxeItemMT::getDestroySpeed(ItemInstance* item, Tile* tile) {
+	return tile->material != Material::dirt && tile->material != Material::snow && tile->material != Material::sand ? 1.0F : this->efficiencyOnProperMaterial;
+}
+
 bool SpadeItemSP::canDestroySpecial(const Tile* tile) const {
 	return tile == Tile::topSnow ? true : (tile == Tile::snow);
 }
@@ -30,4 +34,8 @@ bool SpadeItemSP::useOn(ItemInstance* item, Player* player, int x, int y, int z,
 			return true;
 		}
 	}*/
+}
+
+int SpadeItemMT::getEnchantSlot() const {
+	return 1024;
 }
