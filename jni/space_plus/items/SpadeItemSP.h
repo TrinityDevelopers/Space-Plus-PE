@@ -13,5 +13,7 @@ public:
 public:
     SpadeItemSP(std::string);
 	virtual bool canDestroySpecial(const Tile*) const;
+	virtual float getDestroySpeed(ItemInstance*, Tile*);
 	virtual bool useOn(ItemInstance*, Player*, int, int, int, signed char, float, float, float);
+	virtual int getEnchantSlot() const;
 };
