@@ -13,7 +13,7 @@ SpadeItemSP::SpadeItemSP(std::string assetName) : DiggerItemSP(SPCoreUtil::findN
 }
 
 float AxeItemMT::getDestroySpeed(ItemInstance* item, Tile* tile) {
-	return tile->material != Material::dirt ? 1.0F : this->efficiencyOnProperMaterial;
+	return tile->material != Material::dirt && tile->material != Material::snow && tile->material != Material::sand ? 1.0F : this->efficiencyOnProperMaterial;
 }
 
 bool SpadeItemSP::canDestroySpecial(const Tile* tile) const {
