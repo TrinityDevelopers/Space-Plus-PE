@@ -25,7 +25,7 @@ void RecipeManagerSP::addUniversalRecipes() {
 	
 	RecipeUtil::pushIngredient(Item::ironIngot->id, 0, 1/*SpacePlusCore::itemList["compressedSteel"]*/, 'Y');
 	RecipeUtil::pushIngredient(Item::stick->id, 0, 1, 'X');
-	RecipeUtil::addRecipe(SPItems::steelSword_>id, 0, 1, {" Y ", " Y ", " X "});
+	RecipeUtil::addRecipe(SPItems::steelSword->id, 0, 1, {" Y ", " Y ", " X "});
 	
 	/*RecipeUtil::pushIngredient(Item::ironIngot->id, 0, 1/*SpacePlusCore::itemList["compressedSteel"], 'Y');
 	RecipeUtil::addRecipe(SPItems::steelBoots->id, 0, 1, {"X X", "X X", "   "});
