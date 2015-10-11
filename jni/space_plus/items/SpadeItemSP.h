@@ -4,6 +4,7 @@
 #include "DiggerItemSP.h"
 #include "space_plus/util/SPCoreUtil.h"
 #include "mcpe/tile/Tile.h"
+#include "mcpe/tile/material/Material.h"
 #include "SPItems.h"
 
 class SpadeItemSP : public DiggerItemSP {
