@@ -20,6 +20,6 @@ void RecipeUtil::addRecipe(int id, int data, int count, const std::vector<std::s
 }
 
 void RecipeUtil::addBlockRecipe(const ItemInstance& result, const ItemInstance& ingredient) {
-	addRecipe(result, {"XXX", "XXX", "XXX"});
-	pushIngredient(ingredient, 'X');
+	pushIngredient(ingredient.getId(), ingredient.damage, ingredient.count, 'X');
+	addRecipe(result.getId(), result.damage, result.count, {"XXX", "XXX", "XXX"});
 }

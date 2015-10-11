@@ -15,8 +15,8 @@ class Level;
 class ItemInstance
 {
 public:
-	int count;			// 0
-	int damage;			// 4
+	short count;		// 0
+	short damage;		// 4
 	CompoundTag* tag;	// 8
 	Item *item;			// 12
 	Tile *tile;			// 16
