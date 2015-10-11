@@ -7,12 +7,14 @@ void RecipeUtil::setInstance(Recipes* instance) {
 	_Instance = instance;
 }
 
-void RecipeUtil::pushIngredient(const ItemInstance& inst, char letter) {
-	Recipes::Type type {inst.item, inst.tile, inst, letter};
+void RecipeUtil::pushIngredient(int id, int data, int count, char letter) {
+	Recipes::Type type {Item::items[id], NULL, ItemInstance(), letter};
 	_ingredients.push_back(type);
 }
 
-void RecipeUtil::addRecipe(const ItemInstance& result, const std::vector<std::string>& shape) {
+void RecipeUtil::addRecipe(int id, int data, int count, const std::vector<std::string>& shape) {
+	ItemInstance result(Item::items[id]);
+	result.count = count;
 	_Instance->addShapedRecipe(result, shape, _ingredients);
 	_ingredients.clear();
 }

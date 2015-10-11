@@ -16,9 +16,9 @@ private:
 public:
 	static void setInstance(Recipes*);
 	
-	static void pushIngredient(const ItemInstance&, char);
+	static void pushIngredient(int, int, int, char);
 	
-	static void addRecipe(const ItemInstance&, const std::vector<std::string>&);
+	static void addRecipe(int, int, int, const std::vector<std::string>&);
     
     static void addBlockRecipe(const ItemInstance&, const ItemInstance&);
 };

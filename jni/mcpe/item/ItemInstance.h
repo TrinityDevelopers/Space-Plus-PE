@@ -11,7 +11,7 @@ class Mob;
 class Player;
 class Level;
 
-// Size : 16
+// Size : 20
 class ItemInstance
 {
 public:

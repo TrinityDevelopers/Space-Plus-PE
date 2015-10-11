@@ -7,35 +7,35 @@ void RecipeManagerSP::loadRecipes(Recipes* instance) {
 }
 
 void RecipeManagerSP::addUniversalRecipes() {
-	RecipeUtil::pushIngredient(ItemInstance(Item::ironIngot)/*SpacePlusCore::itemList["compressedSteel"]*/, 'Y');
-	RecipeUtil::pushIngredient(ItemInstance(Item::stick), 'X');
-	RecipeUtil::addRecipe(ItemInstance(SPItems::steelPickaxe), {"YYY", " X ", " X "}); 
+	RecipeUtil::pushIngredient(Item::ironIngot->id, 0, 1/*SpacePlusCore::itemList["compressedSteel"]*/, 'Y');
+	RecipeUtil::pushIngredient(Item::stick->id, 0, 1, 'X');
+	RecipeUtil::addRecipe(SPItems::steelPickaxe->id, 0, 1, {"YYY", " X ", " X "}); 
 	
-	RecipeUtil::pushIngredient(ItemInstance(Item::ironIngot)/*SpacePlusCore::itemList["compressedSteel"]*/, 'Y');
-	RecipeUtil::pushIngredient(ItemInstance(Item::stick), 'X');
-	RecipeUtil::addRecipe(ItemInstance(SPItems::steelAxe), {"YY ", "YX ", " X "});
+	RecipeUtil::pushIngredient(Item::ironIngot->id, 0, 1/*SpacePlusCore::itemList["compressedSteel"]*/, 'Y');
+	RecipeUtil::pushIngredient(Item::stick->id, 0, 1, 'X');
+	RecipeUtil::addRecipe(SPItems::steelAxe->id, 0, 1, {"YY ", "YX ", " X "});
 	
-	RecipeUtil::pushIngredient(ItemInstance(Item::ironIngot)/*SpacePlusCore::itemList["compressedSteel"]*/, 'Y');
-	RecipeUtil::pushIngredient(ItemInstance(Item::stick), 'X');
-	RecipeUtil::addRecipe(ItemInstance(SPItems::steelHoe), {"YY ", " X ", " X "});
+	RecipeUtil::pushIngredient(Item::ironIngot->id, 0, 1/*SpacePlusCore::itemList["compressedSteel"]*/, 'Y');
+	RecipeUtil::pushIngredient(Item::stick->id, 0, 1, 'X');
+	RecipeUtil::addRecipe(SPItems::steelHoe->id, 0, 1, {"YY ", " X ", " X "});
 	
-	RecipeUtil::pushIngredient(ItemInstance(Item::ironIngot)/*SpacePlusCore::itemList["compressedSteel"]*/, 'Y');
-	RecipeUtil::pushIngredient(ItemInstance(Item::stick), 'X');
-	RecipeUtil::addRecipe(ItemInstance(SPItems::steelSpade), {" Y ", " X ", " X "});
+	RecipeUtil::pushIngredient(Item::ironIngot->id, 0, 1/*SpacePlusCore::itemList["compressedSteel"]*/, 'Y');
+	RecipeUtil::pushIngredient(Item::stick->id, 0, 1, 'X');
+	RecipeUtil::addRecipe(SPItems::steelSpade->id, 0, 1, {" Y ", " X ", " X "});
 	
-	RecipeUtil::pushIngredient(ItemInstance(Item::ironIngot)/*SpacePlusCore::itemList["compressedSteel"]*/, 'Y');
-	RecipeUtil::pushIngredient(ItemInstance(Item::stick), 'X');
-	RecipeUtil::addRecipe(ItemInstance(SPItems::steelSword), {" Y ", " Y ", " X "});
+	RecipeUtil::pushIngredient(Item::ironIngot->id, 0, 1/*SpacePlusCore::itemList["compressedSteel"]*/, 'Y');
+	RecipeUtil::pushIngredient(Item::stick->id, 0, 1, 'X');
+	RecipeUtil::addRecipe(SPItems::steelSword_>id, 0, 1, {" Y ", " Y ", " X "});
 	
-	/*RecipeUtil::pushIngredient(ItemInstance(Item::ironIngot)/*SpacePlusCore::itemList["compressedSteel"], 'Y');
-	RecipeUtil::addRecipe(ItemInstance(SPItems::steelBoots), {"X X", "X X", "   "});
+	/*RecipeUtil::pushIngredient(Item::ironIngot->id, 0, 1/*SpacePlusCore::itemList["compressedSteel"], 'Y');
+	RecipeUtil::addRecipe(SPItems::steelBoots->id, 0, 1, {"X X", "X X", "   "});
 
-	RecipeUtil::pushIngredient(ItemInstance(Item::ironIngot)/*SpacePlusCore::itemList["compressedSteel"], 'Y');
-	RecipeUtil::addRecipe(ItemInstance(SPItems::steelChestplate), {"X X", "XXX", "XXX"});
+	RecipeUtil::pushIngredient(Item::ironIngot->id, 0, 1/*SpacePlusCore::itemList["compressedSteel"], 'Y');
+	RecipeUtil::addRecipe(SPItems::steelChestplate->id, 0, 1, {"X X", "XXX", "XXX"});
 
-	RecipeUtil::pushIngredient(ItemInstance(Item::ironIngot)/*SpacePlusCore::itemList["compressedSteel"], 'Y');
-	RecipeUtil::addRecipe(ItemInstance(SPItems::steelLeggings), {"XXX", "X X", "X X"});
+	RecipeUtil::pushIngredient(Item::ironIngot->id, 0, 1/*SpacePlusCore::itemList["compressedSteel"], 'Y');
+	RecipeUtil::addRecipe(SPItems::steelLeggings->id, 0, 1, {"XXX", "X X", "X X"});
 
-	RecipeUtil::pushIngredient(ItemInstance(Item::ironIngot)/*SpacePlusCore::itemList["compressedSteel"], 'Y');
-	RecipeUtil::addRecipe(ItemInstance(SPItems::steelHelmet), {"XXX", "X X", "   "});*/
+	RecipeUtil::pushIngredient(Item::ironIngot->id, 0, 1/*SpacePlusCore::itemList["compressedSteel"], 'Y');
+	RecipeUtil::addRecipe(SPItems::steelHelmet->id, 0, 1, {"XXX", "X X", "   "});*/
 }
