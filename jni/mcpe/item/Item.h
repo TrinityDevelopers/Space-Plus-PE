@@ -118,7 +118,7 @@ public:
 	static void addCreativeItem(short, short);
 	static void addCreativeItem(ItemInstance const&);
 	
-	static Item* items[512];
+	static Item* items[4096];
 	static std::vector<ItemInstance*> creativeList;
 
 	static void initItems();
