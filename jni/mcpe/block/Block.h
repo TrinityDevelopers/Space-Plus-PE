@@ -2,7 +2,7 @@
 
 #include <string>
 #include <memory>
-#include "../tileentity/TileEntityType.h"
+#include "../blockentity/BlockEntityType.h"
 #include "../client/renderer/texture/TextureUVCoordinateSet.h"
 #include "../client/renderer/texture/TextureAtlasTextureItem.h"
 #include "../util/AABB.h"
@@ -10,341 +10,373 @@
 
 class TextureAtlas;
 class Material;
-class TileSource;
+class BlockSource;
 class Random;
 class Player;
-class TilePos;
+class BlockPos;
 class Entity;
 class Vec3;
 class Mob;
 class ItemInstance;
-typedef int TileType;
+typedef int BlockType;
 
 // Size : 140
-class Tile
+class Block
 {
 public:
 	// Size : 12
-	class SoundType
-	{
+	class SoundType {
 	public:
-		float volume;			// 0
-		float frequency;		// 4
-		std::string breakSound; // 8
-		std::string stepOnSound;  // 12
-	public:
-		SoundType(const std::string &, float, float);
-		~SoundType();
+		float volume; // 0
+		float pitch; // 4
+		std::string stepSound; // 8
+		std::string breakSound; // 12
+		std::string placeSound; // 16
+
+		SoundType(const std::string&, float, float);
+		SoundType(const std::string&, const std::string&, float, float);
+		SoundType(const std::string&, const std::string&, const std::string&, float, float);
+
+		float getVolume() const;
+		float getPitch() const;
+		std::string getStepSound() const;
+		std::string getBreakSound() const;
+		std::string getPlaceSound() const;
 	};
 
 public:
-	static Tile* activatorRail;
-	static Tile* anvil;
-	static Tile* bed;
-	static Tile* beetroot;
-	static Tile* bookshelf;
-	static Tile* brewing_stand;
-	static Tile* brownMushroom;
-	static Tile* brownMushroomBlock;
-	static Tile* cactus;
-	static Tile* cake;
-	static Tile* calmLava;
-	static Tile* calmWater;
-	static Tile* carrots;
-	static Tile* chest;
-	static Tile* clay;
-	static Tile* cloth;
-	static Tile* coalBlock;
-	static Tile* coalOre;
-	static Tile* cobbleWall;
-	static Tile* cocoa;
-	static Tile* deadBush;
-	static Tile* diamondBlock;
-	static Tile* diamondOre;
-	static Tile* dirt;
-	static Tile* door_iron;
-	static Tile* door_wood;
-	static Tile* doublePlant;
-	static Tile* emeraldBlock;
-	static Tile* emeraldOre;
-	static Tile* enchantingTable;
-	static Tile* endPortalFrame;
-	static Tile* endStone;
-	static Tile* farmland;
-	static Tile* fence;
-	static Tile* fenceGateAcacia;
-	static Tile* fenceGateBigOak;
-	static Tile* fenceGateBirch;
-	static Tile* fenceGateJungle;
-	static Tile* fenceGateOak;
-	static Tile* fenceGateSpruce;
-	static Tile* fire;
-	static Tile* flowerPot;
-	static Tile* furnace;
-	static Tile* furnace_lit;
-	static Tile* glass;
-	static Tile* glowingObsidian;
-	static Tile* goldBlock;
-	static Tile* goldOre;
-	static Tile* goldenRail;
-	static Tile* grass;
-	static Tile* grassPathBlock;
-	static Tile* gravel;
-	static Tile* hardenedClay;
-	static Tile* hayBlock;
-	static Tile* ice;
-	static Tile* info_reserved6;
-	static Tile* info_updateGame1;
-	static Tile* info_updateGame2;
-	static Tile* invisible_bedrock;
-	static Tile* ironBlock;
-	static Tile* ironFence;
-	static Tile* ironOre;
-	static Tile* ladder;
-	static Tile* lapisBlock;
-	static Tile* lapisOre;
-	static Tile* lava;
-	static Tile* leaves;
-	static Tile* leaves2;
-	static Tile* lightGem;
-	static Tile* litPumpkin;
-	static Tile* log;
-	static Tile* log2;
-	static Tile* melon;
-	static Tile* melonStem;
-	static Tile* mobSpawner;
-	static Tile* monsterStoneEgg;
-	static Tile* mossStone;
-	static Tile* mycelium;
-	static Tile* netherBrick;
-	static Tile* netherFence;
-	static Tile* netherReactor;
-	static Tile* netherWart;
-	static Tile* netherrack;
-	static Tile* obsidian;
-	static Tile* packedIce;
-	static Tile* podzol;
-	static Tile* portal;
-	static Tile* potatoes;
-	static Tile* pumpkin;
-	static Tile* pumpkinStem;
-	static Tile* quartzBlock;
-	static Tile* quartzOre;
-	static Tile* rail;
-	static Tile* redBrick;
-	static Tile* redFlower;
-	static Tile* redMushroom;
-	static Tile* redMushroomBlock;
-	static Tile* redStoneDust;
-	static Tile* redStoneOre;
-	static Tile* redStoneOre_lit;
-	static Tile* redstoneBlock;
-	static Tile* reeds;
-	static Tile* rock;
-	static Tile* sand;
-	static Tile* sandStone;
-	static Tile* sapling;
-	static Tile* sign;
-	static Tile* skull;
-	static Tile* snow;
-	static Tile* soulSand;
-	static Tile* sponge;
-	static Tile* stainedClay;
-	static Tile* stairs_brick;
-	static Tile* stairs_netherBricks;
-	static Tile* stairs_quartz;
-	static Tile* stairs_sandStone;
-	static Tile* stairs_stone;
-	static Tile* stairs_stoneBrickSmooth;
-	static Tile* stairs_wood;
-	static Tile* stoneBrick;
-	static Tile* stoneBrickSmooth;
-	static Tile* stoneSlab;
-	static Tile* stoneSlabHalf;
-	static Tile* stonecutterBench;
-	static Tile* tallgrass;
-	static Tile* thinGlass;
-	static Tile* tnt;
-	static Tile* topSnow;
-	static Tile* torch;
-	static Tile* trapdoor;
-	static Tile* unbreakable;
-	static Tile* vine;
-	static Tile* wallSign;
-	static Tile* water;
-	static Tile* waterlily;
-	static Tile* web;
-	static Tile* wheat;
-	static Tile* wood;
-	static Tile* woodSlab;
-	static Tile* woodSlabHalf;
-	static Tile* woodStairsAcacia;
-	static Tile* woodStairsBigOak;
-	static Tile* woodStairsDark;
-	static Tile* woodStairsBirch;
-	static Tile* woodStairsJungle;
-	static Tile* woolCarpet;
-	static Tile* workBench;
-	static Tile* yellowFlower;
+	static Block* mAir; // 0
+	static Block* mStone; // 1
+	static Block* mGrass; // 2
+	static Block* mDirt; // 3
+	static Block* mCobblestone; // 4
+	static Block* mWoodPlanks; // 5
+	static Block* mSapling; // 6
+	static Block* mBedrock; // 7
+	static Block* mFlowingWater; // 8
+	static Block* mStillWater; // 9
+	static Block* mFlowingLava; // 10
+	static Block* mStillLava; // 11
+	static Block* mSand; // 12
+	static Block* mGravel; // 13
+	static Block* mGoldOre; // 14
+	static Block* mIronOre; // 15
+	static Block* mCoalOre; // 16
+	static Block* mLog; // 17
+	static Block* mLeaves; // 18
+	static Block* mSponge; // 19
+	static Block* mGlass; // 20
+	static Block* mLapisOre; // 21
+	static Block* mLapisBlock; // 22
+	static Block* mSandStone; // 24
+	static Block* mNote; // 25
+	static Block* mBed; // 26
+	static Block* mGoldenRail; // 27
+	static Block* mDetectorRail; // 28
+	static Block* mPistonSticky; // 29
+	static Block* mWeb; // 30
+	static Block* mTallgrass; // 31
+	static Block* mDeadBush; // 32
+	static Block* mWool; // 35
+	static Block* mYellowFlower; // 37
+	static Block* mRedFlower; // 38
+	static Block* mBrownMushroom; // 39
+	static Block* mRedMushroom; // 40
+	static Block* mGoldBlock; // 41
+	static Block* mIronBlock; // 42
+	static Block* mStoneSlab; // 44
+	static Block* mBrick; // 45
+	static Block* mTNT; // 46
+	static Block* mBookshelf; // 47
+	static Block* mMossyCobblestone; // 48
+	static Block* mObsidian; // 49
+	static Block* mTorch; // 50
+	static Block* mFire; // 51
+	static Block* mMobSpawner; // 52
+	static Block* mOakStairs; // 53
+	static Block* mChest; // 54
+	static Block* mRedStoneDust; // 55
+	static Block* mDiamondOre; // 56
+	static Block* mDiamondBlock; // 57
+	static Block* mWorkBench; // 58
+	static Block* mWheatCrop; // 59
+	static Block* mFarmland; // 60
+	static Block* mFurnace; // 61
+	static Block* mLitFurnace; // 62
+	static Block* mSign; // 63
+	static Block* mWoodenDoor; // 64
+	static Block* mLadder; // 65
+	static Block* mRail; // 66
+	static Block* mStoneStairs; // 67
+	static Block* mWallSign; // 68
+	static Block* mLever; // 69
+	static Block* mStonePressurePlate; // 70
+	static Block* mIronDoor; // 71
+	static Block* mWoodPressurePlate; // 72
+	static Block* mRedStoneOre; // 73
+	static Block* mLitRedStoneOre; // 74
+	static Block* mUnlitRedStoneTorch; // 75
+	static Block* mLitRedStoneTorch; // 76
+	static Block* mStoneButton; // 77
+	static Block* mTopSnow; // 78
+	static Block* mIce; // 79
+	static Block* mSnow; // 80
+	static Block* mCactus; // 81
+	static Block* mClay; // 82
+	static Block* mReeds; // 83
+	static Block* mFence; // 85
+	static Block* mPumpkin; // 86
+	static Block* mNetherrack; // 87
+	static Block* mSoulSand; // 88
+	static Block* mGlowStone; // 89
+	static Block* mPortal; // 90
+	static Block* mLitPumpkin; // 91
+	static Block* mCake; // 92
+	static Block* mInvisibleBedrock; // 95
+	static Block* mTrapdoor; // 96
+	static Block* mMonsterStoneEgg; // 97
+	static Block* mStoneBrick; // 98
+	static Block* mBrownMushroomBlock; // 99
+	static Block* mRedMushroomBlock; // 100
+	static Block* mIronFence; // 101
+	static Block* mGlassPane; // 102
+	static Block* mMelon; // 103
+	static Block* mPumpkinStem; // 104
+	static Block* mMelonStem; // 105
+	static Block* mVine; // 106
+	static Block* mFenceGateOak; // 107
+	static Block* mBrickStairs; // 108
+	static Block* mStoneBrickStairs; // 109
+	static Block* mMycelium; // 110
+	static Block* mWaterlily; // 111
+	static Block* mNetherBrick; // 112
+	static Block* mNetherFence; // 113
+	static Block* mNetherBrickStairs; // 114
+	static Block* mEnchantingTable; // 116
+	static Block* mBrewingStand; // 117
+	static Block* mEndPortalFrame; // 120
+	static Block* mEndStone; // 121
+	static Block* mUnlitRedStoneLamp; // 123
+	static Block* mLitRedStoneLamp; // 124
+	static Block* mActivatorRail; // 126
+	static Block* mCocoa; // 127
+	static Block* mSandStoneStairs; // 128
+	static Block* mEmeraldOre; // 129
+	static Block* mTripwireHook; // 131
+	static Block* mTripwire; // 132
+	static Block* mEmeraldBlock; // 133
+	static Block* mSpruceStairs; // 134
+	static Block* mBirchStairs; // 135
+	static Block* mJungleStairs; // 136
+	static Block* mCobblestoneWall; // 139
+	static Block* mFlowerPot; // 140
+	static Block* mCarrotCrop; // 141
+	static Block* mPotatoCrop; // 142
+	static Block* mWoodButton; // 143
+        static Block* mSkull; // 144
+	static Block* mAnvil; // 145
+	static Block* mTrappedChest; // 146
+	static Block* mLightWeightedPressurePlate; // 147
+	static Block* mHeavyWeightedPressurePlate; // 148
+	static Block* mDaylightDetector; // 151
+	static Block* mRedstoneBlock; // 152
+	static Block* mQuartzOre; // 153
+	static Block* mQuartzBlock; // 155
+	static Block* mQuartzStairs; // 156
+	static Block* mWoodenSlab; // 158
+	static Block* mStainedClay; // 159
+	static Block* mLeaves2; // 161
+	static Block* mLog2; // 162
+	static Block* mAcaciaStairs; // 163
+	static Block* mDarkOakStairs; // 164
+	static Block* mHayBlock; // 170
+	static Block* mWoolCarpet; // 171
+	static Block* mHardenedClay; // 172
+	static Block* mCoalBlock; // 173
+	static Block* mPackedIce; // 174
+	static Block* mDoublePlant; // 175
+	static Block* mDaylightDetectorInverted; // 178
+	static Block* mSpuceFenceGate; // 183
+	static Block* mBirchFenceGate; // 184
+	static Block* mJungleFenceGate; // 185
+	static Block* mDarkOakFenceGate; // 186
+	static Block* mAcaciaFenceGate; // 187
+	static Block* mWoodenDoorSpruce; // 193
+	static Block* mWoodenDoorBirch; // 194
+	static Block* mWoodenDoorJungle; // 195
+	static Block* mWoodenDoorAcacia; // 196
+	static Block* mWoodenDoorDarkOak; // 197
+	static Block* mGrassPathBlock; // 198
+	static Block* mPodzol; // 243
+	static Block* mBeetrootCrop; // 244
+	static Block* mStonecutterBench; // 245
+	static Block* mGlowingObsidian; // 246
+	static Block* mNetherReactor; // 247
+	static Block* mInfoUpdateGame1; // 248
+	static Block* mInfoUpdateGame2; // 249
+	static Block* mInfoReserved6; // 255
 
 public:
-	static SoundType SOUND_ANVIL;
-	static SoundType SOUND_CLOTH;
-	static SoundType SOUND_GLASS;
-	static SoundType SOUND_GRASS;
-	static SoundType SOUND_GRAVEL;
-	static SoundType SOUND_LADDER;
-	static SoundType SOUND_METAL;
-	static SoundType SOUND_NORMAL;
-	static SoundType SOUND_SAND;
-	static SoundType SOUND_SILENT;
-	static SoundType SOUND_SNOW;
-	static SoundType SOUND_STONE;
-	static SoundType SOUND_WOOD;
+	static const Block::SoundType SOUND_ANVIL;
+	static const Block::SoundType SOUND_CLOTH;
+	static const Block::SoundType SOUND_GLASS;
+	static const Block::SoundType SOUND_GRASS;
+	static const Block::SoundType SOUND_GRAVEL;
+	static const Block::SoundType SOUND_LADDER;
+	static const Block::SoundType SOUND_METAL;
+	static const Block::SoundType SOUND_NORMAL;
+	static const Block::SoundType SOUND_SAND;
+	static const Block::SoundType SOUND_SILENT;
+	static const Block::SoundType SOUND_SNOW;
+	static const Block::SoundType SOUND_STONE;
+	static const Block::SoundType SOUND_WOOD;
 
 public:
-	static bool shouldTick[255];
-	static float translucency[255];
-	static bool solid[255];
-	static float lightEmission[255];
-	static uint_fast8_t lightBlock[255];
-	static Tile *tiles[255];
+	static Block* mBlocks[256];
+	static bool mSolid[256];
+	static float mTranslucency[256];
+	static uint_fast8_t mLightBlock[256];
+	static int mLightEmission[256];
+	static bool mShouldTick[256];
 
 public:
-	static TextureAtlas *_terrainTextureAtlas;
-	static const char *TILE_DESCRIPTION_PREFIX;
+	static TextureAtlas *mTerrainTextureAtlas;
+	static const char *Block_DESCRIPTION_PREFIX;
 
 public:
-	//void **vtable;					// 0
-	bool replaceable; // 4
-	AABB hitbox; // 8
-	TextureUVCoordinateSet tex; // 36
-	unsigned char id; // 68
-	const Tile::SoundType* soundType; // 72
-	bool canBuildOver; // 76
-	int renderPass; // 80
-	int renderType; // 84
-	int tileType; // 88
-	int tileEntityType; // 92
-	float thickness; // 96
-	bool canSlide; // 100
-	bool canInstaTick; // 101
-	float gravity; // 104
-	Material* material; // 108
-	float friction; // 112
-	float destroyTime; // 116
-	float explosionResistance; // 120
-	int category; // 124
-	bool fancy;  // 128
-	unsigned int textureIsotropic; // 132
-	std::string descriptionId; // 136
+	signed char blockId; // 4
+	unsigned int textureIsotropic; // 8
+	std::string name; // 12
+	TextureUVCoordinateSet texture; // 16
+	const Block::SoundType& soundType; // 48
+	bool replaceable; // 52
+	bool canBuildOver; // 53
+	int renderLayer; // 56
+	int renderType; // 60
+	int properties; // 64
+	BlockEntityType blockEntityType; // 68
+	bool animates; // 72
+	float thickness; // 76
+	bool slippery; // 80
+	bool instaTicks; // 81
+	float gravity; // 84
+	Material& material; // 88
+	float friction; // 92
+	bool heavy; // 96
+	float hardness; // 100
+	float explosionResistance; // 104
+	int creativeCategory; // 108
+	AABB hitbox; // 112
 
 public:
-	Tile(int, const Material *);
-	Tile(int, TextureUVCoordinateSet, const Material *);
-	Tile(int, std::string const&, const Material *);
-	virtual ~Tile();
-	virtual void onFertilized(TileSource*, int, int, int);
-	virtual AABB const& getVisualShape(TileSource*, int, int, int, AABB&, bool);
-	virtual AABB const& getVisualShape(unsigned char, AABB&, bool);
-	virtual AABB const& getCollisionShape(AABB&, TileSource&, int, int, int);
-	virtual bool isObstructingChests(TileSource*, int, int, int);
-	virtual bool shouldRenderFace(TileSource*, int, int, int, signed char, const AABB&) const;
-	virtual TextureUVCoordinateSet const& getTexture(signed char);
-	virtual TextureUVCoordinateSet const& getTexture(signed char, int);
-	virtual TextureUVCoordinateSet const& getTexture(TileSource*, int, int, int, signed char);
+	Block(const std::string&, int, const Material&);
+	Block(const std::string&, int, TextureUVCoordinateSet, const Material&);
+	Block(const std::string&, int, const std::string&, const Material&);
+
+	virtual ~Block();
+	virtual void tick(BlockSource&, int, int, int, Random&);
+	virtual void animateTick(BlockSource&, int, int, int, Random&);
+	virtual const AABB& getVisualShape(BlockSource&, const BlockPos&, AABB&, bool);
+	virtual const AABB& getVisualShape(unsigned char, AABB&, bool);
+	virtual const AABB& getCollisionShape(AABB&, BlockSource&, const BlockPos&, Entity*);
+	virtual bool isObstructingChests(BlockSource&, const BlockPos&);
+	virtual bool shouldRenderFace(BlockSource&, const BlockPos&, signed char, const AABB&) const;
+	virtual const TextureUVCoordinateSet& getTexture(signed char);
+	virtual const TextureUVCoordinateSet& getTexture(signed char, int);
+	virtual const TextureUVCoordinateSet& getTexture(BlockSource&, const BlockPos&, signed char);
 	virtual void getTessellatedUVs();
 	virtual void getCarriedTexture(signed char, int);
-	virtual AABB* getAABB(TileSource*, int, int, int, AABB&, int, bool, int);
-	virtual void addAABBs(TileSource*, int, int, int, const AABB*, std::vector<AABB, std::allocator<AABB>>&);
-	virtual void addCollisionShapes(TileSource&, int, int, int, const AABB*, std::vector<AABB, std::allocator<AABB>>&);
-	virtual int getRenderLayer(TileSource*, TilePos const&) const; 
+	virtual void addAABBs(BlockSource&, const BlockPos&, const AABB*, std::vector<AABB, std::allocator<AABB>>&);
+	virtual AABB* getAABB(BlockSource&, const BlockPos&, AABB&, int, bool, int);
+	virtual bool addCollisionShapes(BlockSource&, const BlockPos&, const AABB*, std::vector<AABB, std::allocator<AABB>>&, Entity*);
+	virtual bool isCropBlock() const;
+	virtual bool isContainerBlock() const;
+	virtual bool isCraftingBlock() const;
+	virtual bool isInteractiveBlock() const;
+	virtual bool isWaterBlocking() const;
+	virtual bool isRedstoneBlock() const;
+	virtual bool isRedstoneAttachable() const;
+	virtual bool waterSpreadCausesSpawn() const;
+	virtual int getRenderLayer(BlockSource&, const BlockPos&) const;
 	virtual float getThickness() const;
-	virtual bool isCropTile() const;
-	virtual bool isContainerTile() const;
-	virtual bool isCraftingTile() const;
-	virtual bool isInteractiveTile() const;
-	virtual bool isPathfindable(Entity*, const TilePos&, int, int, int);
+	virtual bool checkIsPathable(Entity&, const BlockPos&, const BlockPos&);
+	virtual void onPlace(BlockSource&, const BlockPos&);
+	virtual void onRemove(BlockSource&, const BlockPos&);
+	virtual void onExploded(BlockSource&, const BlockPos&, Entity*);
+	virtual void onStepOn(Entity&, const BlockPos&);
+	virtual void onFallOn(BlockSource&, const BlockPos&, Entity*, float);
+	virtual void onRedstoneUpdate(BlockSource&, const BlockPos&, int, bool);
+	virtual void onLoaded(BlockSource&, const BlockPos&);
+	virtual void onFertilized(BlockSource&, const BlockPos&, Player*);
+	virtual bool mayConsumeFertilizer(BlockSource&);
 	virtual bool mayPick();
-	virtual bool mayPick(TileSource*, int, bool); 
-	virtual bool mayPlace(TileSource*, int, int, int, signed char);
-	virtual bool mayPlace(TileSource*, int, int, int);
-	virtual void tryToPlace(TileSource*, TilePos const&, unsigned char); 
-	virtual void tick(TileSource*, int, int, int, Random*);
-	virtual void animateTick(TileSource*, int, int, int, Random*);
-	virtual void destroy(TileSource*, int, int, int, int, Entity*);
-	virtual void playerWillDestroy(Player*, int, int, int, int);
-	virtual void neighborChanged(TileSource*, int, int, int, int, int, int);
-	virtual void onPlace(TileSource*, int, int, int);
-	virtual void onRemove(TileSource*, int, int, int);
-	virtual void getSecondPart(TileSource&, TilePos const&, TilePos&);
+	virtual bool mayPick(BlockSource&, int, bool);
+	virtual bool mayPlace(BlockSource&, const BlockPos&, signed char);
+	virtual bool mayPlace(BlockSource&, const BlockPos&);
+	virtual void tryToPlace(BlockSource&, const BlockPos&, unsigned char);
+	virtual void destroy(BlockSource&, const BlockPos&, int, Entity*);
+	virtual void playerWillDestroy(Player&, const BlockPos&, int);
+	virtual void neighborChanged(BlockSource&, const BlockPos&, const BlockPos&);
+	virtual void getSecondPart(BlockSource&, const BlockPos&, BlockPos&);
 	virtual void onGraphicsModeChanged(bool, bool);
-	virtual int getResource(Random*, int, int); 
-	virtual int getResourceCount(Random*, int, int); 
-	virtual void getDestroyProgress(Player*);
-	virtual void spawnResources(TileSource*, int, int, int, int, float, int); 
-	virtual void spawnBurnResources(TileSource*, float, float, float);
+	virtual int getResource(Random&, int, int);
+	virtual int getResourceCount(Random&, int, int);
+	virtual ItemInstance& asItemInstance(BlockSource&, const BlockPos&, int) const;
+	virtual float getDestroyProgress(Player&);
+	virtual void spawnResources(BlockSource&, const BlockPos&, int, float, int);
+	virtual void spawnBurnResources(BlockSource&, float, float, float);
 	virtual float getExplosionResistance(Entity*);
-	virtual void clip(TileSource*, int, int, int, const Vec3&, const Vec3&, bool, int);
-	virtual void wasExploded(TileSource*, int, int, int, Entity*);
-	virtual bool use(Player*, int, int, int);
-	virtual void stepOn(Entity*, int, int, int);
-	virtual void fallOn(TileSource*, int, int, int, Entity*, float);
-	virtual int getPlacementDataValue(Mob*, int, int, int, signed char, float, float, float, int);
-	virtual void prepareRender(TileSource*, int, int, int);
-	virtual void attack(Player*, int, int, int);
-	virtual void handleEntityInside(TileSource*, int, int, int, Entity*, Vec3&);
+	virtual void clip(BlockSource&, const BlockPos&, const Vec3&, const Vec3&, bool, int);
+	virtual bool use(Player&, const BlockPos&);
+	virtual int getPlacementDataValue(Mob&, const BlockPos&, signed char, const Vec3&, int);
+	virtual void prepareRender(BlockSource&, const BlockPos&);
+	virtual void attack(Player*, const BlockPos&);
+	virtual void handleEntityInside(BlockSource&, const BlockPos&, Entity*, Vec3&);
 	virtual int getColor(int);
-	virtual int getColor(TileSource*, int, int, int);
-	virtual bool isSeasonTinted(TileSource*, TilePos const&) const;
-	virtual bool isSignalSource();
-	virtual bool getSignal(TileSource*, int, int, int);
-	virtual int getSignal(TileSource*, int, int, int, int);
-	virtual int getDirectSignal(TileSource*, int, int, int, int);
-	virtual bool entityInside(TileSource*, int, int, int, Entity*);
-	virtual void playerDestroy(Player*, int, int, int, int);
-	virtual bool canSurvive(TileSource*, int, int, int);
-	virtual int getExperienceDrop(Random*) const;
-	virtual bool canBeBuiltOver(TileSource&, int, int, int) const;
-	virtual Tile* setNameId(const std::string&);
-	virtual std::string getName(const ItemInstance*) const;
-	virtual void triggerEvent(TileSource*, int, int, int, int, int);
+	virtual int getColor(BlockSource&, const BlockPos&);
+	virtual bool isSeasonTinted(BlockSource&, const BlockPos&) const;
+	virtual bool entityInside(BlockSource&, const BlockPos&, Entity&);
+	virtual void playerDestroy(Player*, const BlockPos&, int);
+	virtual bool canSurvive(BlockSource&, const BlockPos&);
+	virtual int getExperienceDrop(Random&) const;
+	virtual bool canBeBuiltOver(BlockSource&, const BlockPos&) const;
+	virtual std::string& buildDescriptionName(const ItemInstance&) const;
+	virtual void triggerEvent(BlockSource&, const BlockPos&, int, int);
 	virtual TextureUVCoordinateSet getTextureNum(int);
-	virtual void getMobToSpawn(TileSource&, const TilePos&) const;
+	virtual void getMobToSpawn(BlockSource&, const BlockPos&) const;
 	virtual int getIconYOffset() const;
-	virtual bool shouldStopFalling(Entity*);
-	virtual float calcGroundFriction(Mob*, const TilePos&) const;
+	virtual bool shouldStopFalling(Entity&);
+	virtual float calcGroundFriction(Mob&, const BlockPos&) const;
 	virtual bool canHaveExtraData() const;
-	virtual void setVisualShape(float, float, float, float, float, float);
-	virtual Tile* setSoundType(const Tile::SoundType&);
-	virtual Tile* setLightBlock(Brightness);
-	virtual Tile* setLightEmission(float);
-	virtual Tile* setExplodeable(float);
-	virtual Tile* setDestroyTime(float);
-	virtual Tile* setFriction(float);
+	virtual Block* init();
+	virtual bool canBeSilkTouched() const;
+	virtual ItemInstance& getSilkTouchItemInstance(unsigned char);
+	virtual void setVisualShape(const Vec3&, const Vec3&);
+	virtual Block* setSoundType(const Block::SoundType&);
+	virtual Block* setLightBlock(Brightness);
+	virtual Block* setLightEmission(float);
+	virtual Block* setExplodeable(float);
+	virtual Block* setDestroyTime(float);
+	virtual Block* setFriction(float);
 	virtual void setTicking(bool);
-	virtual void getSpawnResourcesAuxValue(int);
-	virtual Tile* init();
-	virtual bool _canBeSilkTouched() const;
-	virtual ItemInstance* getSilkTouchItemInstance(int);
+	virtual void getSpawnResourcesAuxValue(unsigned char);
+
 	
-	static void initTiles();
-	static Tile *getLightEmission(TileID);
+	static void initBlocks();
+	static int getLightEmission(BlockID);
 	static TextureAtlasTextureItem getTextureItem(const std::string &);
 	static TextureUVCoordinateSet getTextureUVCoordinateSet(const std::string &, int);
-	static Material *getTileMaterial(int);
-	static bool isFaceVisible(TileSource *, int, int, int, signed char);
-	static bool isTileType(const FullTile &, TileType);
+	static bool isFaceVisible(BlockSource &, const BlockPos &, signed char);
 	static void setTextureAtlas(std::shared_ptr<TextureAtlas>);
-	static void teardownTiles();
-	void _getTypeToSpawn(TileSource &, int, const TilePos &) const;
-	void addAABB(const AABB &, const AABB *, std::vector<AABB> &);
-	void destroyEffect(TileSource &, const TilePos &, const Vec3 &);
+	static void teardownBlocks();
+	void _getTypeToSpawn(BlockSource &, int, const BlockPos &) const;
+	void addAABB(const AABB&, const AABB*, std::vector<AABB, std::allocator<AABB>>&);
+	void destroyEffect(BlockSource &, const BlockPos &, const Vec3 &);
 	float getShadeBrightness() const;
-	bool isLiquidTile() const;
-	bool isObstructingChests(TileSource *, const TilePos &);
-	void popResource(TileSource *, int, int, int, const ItemInstance &);
-	Tile* setCategory(int);
-	void transformToValidBlockId(TileID);
-	void transformToValidBlockId(TileID, int, int, int);
+	bool isLiquidBlock() const;
+	bool isObstructingChests(BlockSource *, const BlockPos &);
+	void popResource(BlockSource&, const BlockPos&, const ItemInstance&);
+	Block* setCategory(CreativeItemCategory);
+	void transformToValidBlockId(BlockID);
+	void transformToValidBlockId(BlockID, int, int, int);
 };
